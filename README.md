@@ -69,16 +69,16 @@ Skincare consumers often struggle to understand the ingredients in their product
 
 | Day | Task |
 |-----|------|
-| 1 | Set up backend (Express, MySQL), initialize the database schema. |
-| 2 | Implement AI-Powered Ingredient Breakdown – Integrate Google Cloud Vision API for OCR. |
+| 1 | Set up backend (MySQL), initialize the database schema. |
+| 2 | Implement AI-Powered Ingredient Breakdown – Integrate Google Cloud Vision API. |
 | 3 | Implement NLP categorization for ingredient analysis and match extracted ingredients to database records. |
 | 4 | Develop database structure and populate ingredient database (harmful, beneficial, and neutral ingredients). |
-| 5 | Build frontend (React, Next.js) and design the main UI components. |
+| 5 | Build frontend (React) and design the main UI components. |
 | 6 | Implement API endpoints to support ingredient breakdown and integrate backend with frontend. |
 | 7 | Develop Personalized Skin Type Analysis – User quiz and preference storage. |
 | 8 | Implement Better Product Alternatives Finder – Fetch alternative product suggestions based on ingredient analysis. |
 | 9 | Develop Smart Ingredient Glossary – Create search & learn functionality for ingredient definitions. |
-| 10 | Final UI/UX polish, bug fixes, full app testing, and deployment to Vercel (frontend) and Render/Heroku (backend). |
+| 10 | Final UI/UX polish, bug fixes, full app testing, and deployment. |
 
 ---
 
