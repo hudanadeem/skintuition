@@ -9,7 +9,6 @@
 Skincare consumers often struggle to understand the ingredients in their products, leading to the use of potentially harmful substances that may cause long-term damage. **Skintuition** simplifies this process using AI and a user-friendly interface, making skincare transparency accessible to everyone.
 
 ## User Profile
-
 ### Primary Users:
 - Skincare enthusiasts
 - Dermatology patients
@@ -18,7 +17,7 @@ Skincare consumers often struggle to understand the ingredients in their product
 
 ### Considerations:
 - The app must be intuitive and mobile-friendly.
-- It should provide easy-to-understand ingredient analysis without overwhelming users with technical jargon.
+- It should provide easy-to-understand ingredient analysis without overwhelming users with technical content.
 
 ## Features
 
@@ -30,18 +29,19 @@ Skincare consumers often struggle to understand the ingredients in their product
 - **As a user,** I want to save products and ingredients for future reference.
 - **As a user,** I want an intuitive and user-friendly interface.
 
-## Implementation
-
 ### Tech Stack
 
 - **Frontend:** React.js, SCSS for styling
-- **Backend:** MySQL (using Workbench for database management), Express.js
+- **Backend:** MySQL (using Workbench for database management)
 - **AI:** Google Cloud Vision API (for text extraction from images)
 
 ### APIs
 
 - **Google Cloud Vision API** – OCR for ingredient text extraction
 - **Sephora API** – Ingredient & product lookup
+
+### Mockups
+
 
 ### Sitemap
 
@@ -50,10 +50,6 @@ Skincare consumers often struggle to understand the ingredients in their product
 - **Results Page** – Ingredient breakdown, safety categorization, and recommendations
 - **Glossary Page** – Search & browse ingredient information
 - **Profile Page** – User settings, saved products, and skin type preferences
-
-### Mockups
-
-Provide visuals of your app's screens using hand-drawn sketches or wireframing tools like **Figma**.
 
 ### Data Structure
 
@@ -92,16 +88,3 @@ Provide visuals of your app's screens using hand-drawn sketches or wireframing t
 - **User Reviews & Community Ratings** – Allow users to rate and review ingredients based on personal experiences.
 - **AI-Powered Skincare Recommendations** – Suggest entire routines based on skin type and ingredient compatibility.
 - **Ingredient Safety Alerts** – Notify users when an ingredient is flagged by dermatology experts.
-
-## Deployment Plan
-
-- **Frontend:** Deploy using React.
-- **Backend:** Host API on Render or Heroku.
-- **Database:** MySQL database.
-- **Version Control:** GitHub repository.
-
-## Demo & Testing
-
-- **Unit Testing:** Test core functionalities of ingredient analysis and API responses.
-- **End-to-End Testing:** Simulate full user flows to identify potential UX/UI issues.
-- **Beta Testing:** Collect feedback from real skincare users to refine features before launch.
