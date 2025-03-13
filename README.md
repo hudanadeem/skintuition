@@ -88,3 +88,8 @@ Skincare consumers often struggle to understand the ingredients in their product
 - **User Reviews & Community Ratings** – Allow users to rate and review ingredients based on personal experiences.
 - **AI-Powered Skincare Recommendations** – Suggest entire routines based on skin type and ingredient compatibility.
 - **Ingredient Safety Alerts** – Notify users when an ingredient is flagged by dermatology experts.
+
+## Repos
+- **https://github.com/hudanadeem/skintuition**
+- **https://github.com/hudanadeem/skintuition-backend**
+
