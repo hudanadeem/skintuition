@@ -56,16 +56,16 @@ Skincare consumers often struggle to understand the ingredients in their product
 
 ### API Endpoints
 
-## Authentication
+#### Authentication
   - **POST** `/api/auth/register` – Registers a new user. Requires email, password, and name.
   - **POST** `/api/auth/login` – Authenticates a user and returns a JWT token.
-## User Profile
+#### User Profile
   - **GET** `/api/users/profile` – Retrieves the authenticated user’s profile. (Requires JWT token)
   - **POST** `/api/users/update-skin-type` – Updates a user's skin type in their profile. (Requires JWT token)
-## Skin Type
+#### Skin Type
   - **GET** `/api/skin-type/questions` – Retrieves the skin type questionnaire.
   - **POST** `/api/skin-type/` – Determines the user’s skin type based on answers.
-## Image Analysis
+#### Image Analysis
   - **POST** `/api/analyze/` – Uploads an image for skin analysis. (Requires a file upload with field "image")
 
 
