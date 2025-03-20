@@ -1,0 +1,29 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.our-mission {
+    background: #F8EDEB; 
+    padding: 6rem 2rem;
+    text-align: center;
+    color: #6a3a3d; 
+    font-family: "Garbata";
+
+    &__headline {
+        font-size: 2.5rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+    }
+
+    &__content {
+        max-width: 800px;
+        margin: 0 auto;
+        font-size: 1.25rem;
+        line-height: 1.6;
+    }
+
+    &__cta {
+        margin-top: 2rem;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+}

@@ -36,7 +36,11 @@ function Header() {
             Unlock the Secrets to Your Skin: Decode Your Ingredients.
           </h2>
         </div>
-        <img className="header__img" src={heroImg} alt="Hero Image" />
+        <div className="header__img-container">
+          <div className="header__img">
+            <img src={heroImg} alt="Hero Image" />
+          </div>
+        </div>
       </div>
     </>
   );
