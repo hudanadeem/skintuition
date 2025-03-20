@@ -24,7 +24,6 @@ Skincare consumers often struggle to understand the ingredients in their product
 - **As a user,** I want to be able to scan an ingredient list via image upload or text input.
 - **As a user,** I want AI to categorize ingredients as Beneficial, Potential Irritants, or Harmful.
 - **As a user,** I want to receive personalized ingredient analysis based on my skin type.
-- **As a user,** I want AI to recommend safer product alternatives.
 - **As a user,** I want access to an ingredient glossary to learn about skincare ingredients.
 - **As a user,** I want to save products and ingredients for future reference.
 - **As a user,** I want an intuitive and user-friendly interface.
@@ -33,12 +32,11 @@ Skincare consumers often struggle to understand the ingredients in their product
 
 - **Frontend:** React.js, SCSS for styling
 - **Backend:** MySQL (using Workbench for database management)
-- **AI:** Google Cloud Vision API (for text extraction from images)
+- **AI:** Gemini API (for text extraction from images)
 
 ### APIs
 
-- **Google Cloud Vision API** – OCR for ingredient text extraction
-- **Sephora API** – Ingredient & product lookup
+- **Gemini AI** – OCR for ingredient text extraction
 
 ### Mockups
 
@@ -53,17 +51,23 @@ Skincare consumers often struggle to understand the ingredients in their product
 
 ### Data Structure
 
-- **Users Table** – Stores user profiles, skin types, and saved products
-- **Ingredients Table** – List of ingredients, their category (**safe, irritant, harmful**), and effects
-- **Products Table** – Stores product names, ingredients, and suggested alternatives
+- **Users Table** – Stores user profiles, skin types
+- **Ingredients Table** – List of ingredients, their category (**safe, irritant, harmful**), and suitable for: (**dry, normal, oily, combination, sensitive**)
 
 ### API Endpoints
 
-- **POST** `/analyze` – Accepts image/text input, returns categorized ingredients.
-- **GET** `/ingredients/:name` – Fetches details for a specific ingredient.
-- **GET** `/alternatives/:productId` – Returns safer product recommendations.
-- **POST** `/user/preferences` – Saves user skin type and preferences.
-- **GET** `/user/saved` – Fetches user’s saved products.
+#### Authentication
+  - **POST** `/api/auth/register` – Registers a new user. Requires email, password, and name.
+  - **POST** `/api/auth/login` – Authenticates a user and returns a JWT token.
+#### User Profile
+  - **GET** `/api/users/profile` – Retrieves the authenticated user’s profile. (Requires JWT token)
+  - **POST** `/api/users/update-skin-type` – Updates a user's skin type in their profile. (Requires JWT token)
+#### Skin Type
+  - **GET** `/api/skin-type/questions` – Retrieves the skin type questionnaire.
+  - **POST** `/api/skin-type/` – Determines the user’s skin type based on answers.
+#### Image Analysis
+  - **POST** `/api/analyze/` – Uploads an image for skin analysis. (Requires a file upload with field "image")
+
 
 ## Roadmap
 
@@ -88,3 +92,8 @@ Skincare consumers often struggle to understand the ingredients in their product
 - **User Reviews & Community Ratings** – Allow users to rate and review ingredients based on personal experiences.
 - **AI-Powered Skincare Recommendations** – Suggest entire routines based on skin type and ingredient compatibility.
 - **Ingredient Safety Alerts** – Notify users when an ingredient is flagged by dermatology experts.
+
+## Repos
+- **https://github.com/hudanadeem/skintuition**
+- **https://github.com/hudanadeem/skintuition-backend**
+
