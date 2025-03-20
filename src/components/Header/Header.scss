@@ -1,0 +1,162 @@
+@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #83494c;
+  padding: 1rem 2rem;
+  font-family: "Garbata";
+  color: #fff9d6;
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+  &__title {
+    font-family: "Garbata";
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
+  &__logo {
+    height: 6rem;
+  }
+  &__nav {
+    display: flex;
+    gap: 0.5rem;
+  }
+  &__button {
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 0.75rem;
+    background: linear-gradient(145deg, #83494c, #6a3a3d);
+    color: #fff9d6;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: "Garbata";
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: linear-gradient(145deg, #6a3a3d, #83494c);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15), 0 3px 6px rgba(0, 0, 0, 0.12);
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.95);
+    }
+  }
+
+  &__hero--container {
+    font-family: "Garbata";
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(145deg, #fff9d6, #f5e8c7);
+    color: #83494c;
+    animation: fadeIn 1.5s ease-in-out;
+    padding: 2rem 2rem;
+  }
+
+  &__hero {
+    max-width: 50%;
+    animation: slideInLeft 1s ease-in-out;
+  }
+
+  &__hero--title {
+    font-size: 4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #83494c;
+  }
+
+  &__hero--sub {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    color: #6a3a3d;
+  }
+
+  &__hero--info {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin-bottom: 2.5rem;
+    color: #6a3a3d;
+  }
+
+  &__cta-button {
+    padding: 1rem 2rem;
+    border-radius: 0.75rem;
+    background: #83494c;
+    color: #fff9d6;
+    border: none;
+    font-family: "Garbata";
+    font-weight: 600;
+    text-transform: uppercase;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background: #6a3a3d;
+      transform: translateY(-2px) scale(1.05);
+    }
+
+    &:active {
+      transform: translateY(0) scale(0.95);
+    }
+  }
+
+  &__img {
+    height: 30rem;
+    width: auto;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    animation: slideInRight 1s ease-in-out, zoomIn 1s ease-in-out;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
