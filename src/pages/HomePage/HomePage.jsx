@@ -1,19 +1,18 @@
 import FeatureCards from "../../components/FeatureCards/FeatureCards";
 import Footer from "../../components/Footer/Footer";
-import Header from "../../components/Header/Header";
 import OurMission from "../../components/OurMission/OurMission";
+import NavBar from "../../components/NavBar/NavBar";
+import Hero from "../../components/Hero/Hero";
 import "./HomePage.scss";
 
 function HomePage() {
   return (
     <>
-      <Header />
+      <NavBar />
+      <Hero />
       <OurMission />
       <FeatureCards />
-      <div className="footer__copyright">
-        © 2025 Skintuition. All rights reserved.
-      </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
