@@ -1,37 +1,41 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import brandLogo from "../../assets/logos/skintuition_logo.png";
-import profileIcon from "../../assets/Icons/user.png";
+import profileIcon from "../../assets/Icons/user-profile.png";
+import loggedInIcon from "../../assets/Icons/logged-in.png";
 import "./NavBar.scss";
 
 function NavBar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Simulate authentication state
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown menu
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Simulate logout
-    setIsDropdownOpen(false); // Close dropdown
+    localStorage.removeItem("token"); 
+    setIsLoggedIn(false); 
+    setIsDropdownOpen(false); 
   };
 
   return (
     <div className="nav">
-      {/* Logo (Left) */}
       <div className="nav__left">
         <Link to="/">
           <img className="nav__logo" src={brandLogo} alt="Brand Logo" />
         </Link>
       </div>
 
-      {/* Navigation Links (Center/Right) */}
       <div className="nav__links">
-        {/* Glossary */}
         <Link to="/glossary">
           <button className="nav__button" role="button">
             Glossary
           </button>
         </Link>
-
-        {/* Skin Quiz */}
         <Link to="/quiz">
           <button className="nav__button" role="button">
             Quiz
@@ -49,7 +53,7 @@ function NavBar() {
               >
                 <img
                   className="nav__profile-icon"
-                  src={profileIcon}
+                  src={loggedInIcon} // Use different icon when logged in
                   alt="Profile Icon"
                 />
               </button>
@@ -60,7 +64,6 @@ function NavBar() {
               )}
             </div>
           ) : (
-            // If logged out, show profile icon linking to login page
             <Link to="/login">
               <button className="nav__profile-button">
                 <img
