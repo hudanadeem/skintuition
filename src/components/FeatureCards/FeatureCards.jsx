@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./FeatureCards.scss";
 import card2Img from "../../assets/Icons/scan.jpg";
 import card3Img from "../../assets/Icons/paste.jpg";
@@ -18,15 +19,15 @@ function FeatureCards() {
             />
             <div className="core-functionality__feature-card__content">
               <h3 className="core-functionality__feature-card__title">
-                Personalized Analysis
+                Personalized Quiz
               </h3>
               <p className="core-functionality__feature-card__description">
                 Receive tailored ingredient insights based on your unique skin
                 type.
               </p>
-              <button className="core-functionality__feature-card__button">
-                Learn More
-              </button>
+              <Link to="/quiz" className="core-functionality__feature-card__button">
+                Take the Quiz
+              </Link>
             </div>
           </article>
           <article className="core-functionality__feature-card">
@@ -43,9 +44,9 @@ function FeatureCards() {
                 Effortlessly analyze ingredient lists by simply uploading a
                 photo.
               </p>
-              <button className="core-functionality__feature-card__button">
+              <Link to="/analysis" className="core-functionality__feature-card__button">
                 Try it Now
-              </button>
+              </Link>
             </div>
           </article>
           <article className="core-functionality__feature-card">
@@ -61,9 +62,9 @@ function FeatureCards() {
               <p className="core-functionality__feature-card__description">
                 Copy and paste ingredient lists directly for instant analysis.
               </p>
-              <button className="core-functionality__feature-card__button">
+              <Link to="/" className="core-functionality__feature-card__button">
                 Analyze Now
-              </button>
+              </Link>
             </div>
           </article>
           <article className="core-functionality__feature-card">
@@ -80,9 +81,9 @@ function FeatureCards() {
                 Explore detailed information on thousands of skincare
                 ingredients.
               </p>
-              <button className="core-functionality__feature-card__button">
+              <Link to="/glossary" className="core-functionality__feature-card__button">
                 Explore
-              </button>
+              </Link>
             </div>
           </article>
         </div>
