@@ -2,28 +2,65 @@
 @use "../../styles/partials/variables" as *;
 
 .our-mission {
-    background: #F8EDEB; 
-    padding: 6rem 2rem;
-    text-align: center;
-    color: #6a3a3d; 
-    font-family: "Garbata";
+  background: #FCD5CE; // Seashell background
+  padding: 6rem 2rem;
+  color: #6a3a3d; // Darker shade for text
+  font-family: "Garbata", sans-serif;
 
-    &__headline {
-        font-size: 2.5rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-    }
+  &__container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem; // Space between image and text
+  }
 
-    &__content {
-        max-width: 800px;
-        margin: 0 auto;
-        font-size: 1.25rem;
-        line-height: 1.6;
-    }
+  &__image-container {
+    flex: 1; // Takes up 50% of the container
+    overflow: hidden; // Ensures the image doesn't overflow
+  }
 
-    &__cta {
-        margin-top: 2rem;
-        font-size: 1.25rem;
-        font-weight: 600;
-    }
+  &__image {
+    width: auto;
+    height: 50rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0; // Start invisible
+    transform: translateX(-100%); // Start off-screen to the left
+    animation: slideInLeft 1s ease-in-out forwards; // Slide in from the left
+  }
+
+  &__content-container {
+    flex: 1; // Takes up 50% of the container
+    text-align: left; // Align text to the left
+  }
+
+  &__headline {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  &__content {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  &__cta {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+}
+
+/* Animation for sliding in from the left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
