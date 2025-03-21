@@ -11,7 +11,12 @@ import AnalysisPage from "./pages/AnalysisPage/AnalysisPage";
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true, // Opt-in to React.startTransition behavior
+          v7_relativeSplatPath: true, // Opt-in to new relative splat path behavior
+        }}
+      >
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/contact" element={<ContactPage />}></Route>
