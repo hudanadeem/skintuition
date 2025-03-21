@@ -8,8 +8,11 @@ function HomePage() {
   return (
     <>
       <Header />
-      <OurMission/>
-      <FeatureCards/>
+      <OurMission />
+      <FeatureCards />
+      <div className="footer__copyright">
+        © 2025 Skintuition. All rights reserved.
+      </div>
       {/* <Footer /> */}
     </>
   );
