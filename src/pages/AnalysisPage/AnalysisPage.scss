@@ -1,149 +1,185 @@
+.page__container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+    ellipse 80% 47% at center,
+    #fffdfc 0%,
+    #fffdfc 30%,
+    #ffeae4 50%,
+    #fcd5ce 75%,
+    #fcd5ce 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .analysis-page {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #f8edeb; // Seashell background
-    border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: "Garbata", sans-serif;
-    color: #6a3a3d; // Darker shade for text
-  
-    &__title {
-      font-size: 2.5rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-  
-    &__error {
-      color: #ff6b6b; // Error color
-      text-align: center;
-      margin-bottom: 1rem;
-    }
-  
-    &__upload {
-      margin-bottom: 1.5rem;
-  
-      &-label {
-        display: block;
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-  
-      &-input {
-        display: none;
-      }
-  
-      &-label {
-        background: #83494c; // Darker shade for button
-        color: #fae1dd; // Light text
-        padding: 0.75rem 1.5rem;
-        border: none;
-        border-radius: 0.5rem;
-        font-family: "Garbata", sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-  
-        &:hover {
-          background: #6a3a3d; // Darker shade on hover
-        }
-      }
-  
-      &-image-preview {
-        margin-top: 1rem;
-        text-align: center;
-  
-        img {
-          max-width: 100%;
-          border-radius: 0.5rem;
-        }
-      }
-    }
-  
-    &__skin-type {
-      margin-bottom: 1.5rem;
-  
-      &-label {
-        display: block;
-        font-size: 1rem;
-        font-weight: 600;
-        margin-bottom: 0.5rem;
-      }
-  
-      &-select {
-        width: 100%;
-        padding: 0.75rem;
-        border: 2px solid #83494c; // Darker shade for border
-        border-radius: 0.5rem;
-        font-family: "Garbata", sans-serif;
-        font-size: 1rem;
-        color: #6a3a3d; // Darker shade for text
-        outline: none;
-        transition: border-color 0.3s ease;
-  
-        &:focus {
-          border-color: #ff6b6b; // Highlight on focus
-        }
-      }
-    }
-  
-    &__scan-button {
-      background: #83494c; // Darker shade for button
-      color: #fae1dd; // Light text
-      padding: 0.75rem 1.5rem;
+  max-width: 800px;
+  margin: 9rem auto 4rem;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  font-family: "Garbata", serif;
+  color: #5a2d2f;
+  position: relative;
+
+  &__image {
+    height: 40rem; // Fixed height for the image
+  }
+
+  &__title {
+    font-size: 2.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #83494c;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__error {
+    color: #e63946;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  &__upload {
+    margin-bottom: 2rem;
+
+    &-label {
+      background-color: #83494c;
+      color: #fff0eb;
+      padding: 0.85rem 2rem;
       border: none;
-      border-radius: 0.5rem;
-      font-family: "Garbata", sans-serif;
-      font-size: 1rem;
+      border-radius: 2rem;
+      font-family: inherit;
+      font-size: 1.125rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
-  
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(131, 73, 76, 0.2);
+      display: inline-block;
+
       &:hover {
-        background: #6a3a3d; // Darker shade on hover
-      }
-  
-      &:disabled {
-        background: #ccc;
-        cursor: not-allowed;
+        background-color: #6a3a3d;
+        transform: scale(1.05);
       }
     }
-  
-    &__results {
-      margin-top: 2rem;
-  
-      &-title {
-        font-size: 2rem;
-        font-weight: 600;
-        text-align: center;
-        margin-bottom: 1.5rem;
+
+    &-input {
+      display: none;
+    }
+
+    &-image-preview {
+      margin-top: 1.5rem;
+      text-align: center;
+      max-width: 100%;
+      overflow: hidden;
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(131, 73, 76, 0.2);
+      background: #fff;
+      padding: 1rem;
+      position: relative; // Needed for the scanning line
+    }
+
+    &-image {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+      border-radius: 0.5rem;
+      transition: filter 0.5s ease; // Smooth transition for darkening effect
+    }
+
+    // Scanning animation
+    &-scanning {
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px; // Thickness of the scanning line
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0.8),
+          rgba(255, 255, 255, 0.2)
+        ); // Scanning line gradient
+        animation: scan 2.5s linear infinite; // Scanning animation
+        z-index: 1;
       }
-  
-      &-section {
-        margin-bottom: 1.5rem;
-  
-        h3 {
-          font-size: 1.5rem;
-          font-weight: 600;
-          margin-bottom: 1rem;
-        }
-  
-        ul {
-          list-style: none;
-          padding: 0;
-  
-          li {
-            margin-bottom: 0.5rem;
-            padding: 0.5rem;
-            background: #fff;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          }
+
+      img {
+        filter: brightness(0.5); // Darken the image during scanning
+      }
+    }
+  }
+
+  &__scan-button {
+    background-color: #83494c;
+    color: #fff0eb;
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    font-family: inherit;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(131, 73, 76, 0.2);
+    width: 100%;
+    margin-top: 1.5rem;
+
+    &:hover {
+      background-color: #6a3a3d;
+      transform: scale(1.05);
+    }
+
+    &:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+
+  &__results {
+    margin-top: 2rem;
+
+    &-title {
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #83494c;
+    }
+
+    &-section {
+      margin-bottom: 2rem;
+
+      h3 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #83494c;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+          margin-bottom: 0.5rem;
+          padding: 0.5rem;
+          background: #fff;
+          border-radius: 0.5rem;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
       }
     }
   }
+}
