@@ -1,20 +1,41 @@
+import { useEffect, useRef, useState } from "react";
 import "./OurMission.scss";
 import bottle3 from "../../assets/Icons/bottles-3.jpg";
 
 function OurMission() {
+  const imageRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect(); // Optional: stop observing after it's visible
+        }
+      },
+      { threshold: 0.4 } // Trigger when 40% of image is in view
+    );
+
+    if (imageRef.current) {
+      observer.observe(imageRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section className="our-mission">
       <div className="our-mission__container">
-        {/* Image on the left */}
         <div className="our-mission__image-container">
           <img
+            ref={imageRef}
             src={bottle3}
             alt="skincare image"
-            className="our-mission__image"
+            className={`our-mission__image ${isVisible ? "slide-in" : ""}`}
           />
         </div>
 
-        {/* Text content on the right */}
         <div className="our-mission__content-container">
           <h2 className="our-mission__headline">Our Mission</h2>
           <p className="our-mission__content">

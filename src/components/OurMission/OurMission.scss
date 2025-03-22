@@ -2,7 +2,12 @@
 @use "../../styles/partials/variables" as *;
 
 .our-mission {
-  background: radial-gradient(circle at 72% center, #ffffff 0%, #ffeae4 25%, #fcd5ce 40%);
+  background: radial-gradient(
+    circle at 72% center,
+    #ffffff 0%,
+    #ffeae4 25%,
+    #fcd5ce 40%
+  );
 
   padding: 6rem 2rem;
   color: #6a3a3d; // Darker shade for text
@@ -27,8 +32,13 @@
     border-radius: 1rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     opacity: 0; // Start invisible
-    transform: translateX(-100%); // Start off-screen to the left
-    animation: slideInLeft 1s ease-in-out forwards; // Slide in from the left
+    transform: translateX(-50%);
+    transition: all 1s ease-in-out;
+  }
+
+  &__image.slide-in {
+    opacity: 1;
+    transform: translateX(0);
   }
 
   &__content-container {
