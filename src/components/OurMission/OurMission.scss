@@ -9,8 +9,8 @@
     #fcd5ce 40%
   );
 
-  padding: 6rem 2rem;
-  color: #6a3a3d; // Darker shade for text
+  padding: 8rem 2rem;
+  color: #83494c; // Darker shade for text
   font-family: "Garbata", sans-serif;
 
   &__container {
@@ -28,7 +28,7 @@
 
   &__image {
     width: auto;
-    height: 50rem;
+    height: 45rem;
     border-radius: 1rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     opacity: 0; // Start invisible
@@ -47,21 +47,43 @@
   }
 
   &__headline {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
   }
 
   &__content {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     margin-bottom: 2rem;
   }
 
   &__cta {
-    font-size: 1.25rem;
+    font-size: 1.7rem;
     font-weight: 600;
   }
+  &__cta-button {
+    display: inline-block;
+    font-family: "Garbata", serif;
+    font-weight: 600;
+    font-size: 1.7rem;
+    text-transform: uppercase;
+    color: #83494c;
+    padding: 0.85rem 0rem;
+    border-radius: 2rem;
+    border: none;
+    margin-top: 1rem;
+    text-decoration: none;
+    transition: all 0.35s ease;
+  
+    &:hover {
+      transform: scale(1.5);
+      padding-left: 1.7rem;
+      color: #5B3335;
+    }
+  
+  }
+  
 }
 
 /* Animation for sliding in from the left */

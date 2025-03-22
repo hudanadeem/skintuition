@@ -1,21 +1,14 @@
+import "./HomePage.scss";
 import FeatureCards from "../../components/FeatureCards/FeatureCards";
 import Footer from "../../components/Footer/Footer";
 import OurMission from "../../components/OurMission/OurMission";
-import NavBar from "../../components/NavBar/NavBar";
-import Hero from "../../components/Hero/Hero";
-import brandLogo from "../../assets/logos/skintuition_logo.png";
-import profileIcon from "../../assets/Icons/user-profile.png";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
-import "./HomePage.scss";
-import DropDown from "../../components/DropDown/DropDown";
 import BrandCarousel from "../../components/BrandCarousel/BrandCarousel";
+import HeroHeader from "../../components/HeroHeader/HeroHeader";
 
 function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [titleClass, setTitleClass] = useState("");
-
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -51,47 +44,15 @@ function HomePage() {
   return (
     <>
       <div className="homepage">
-        <div className="homepage__container">
-          <div className={`homepage__nav ${isScrolled ? "scrolled" : ""}`}>
-            {/* Logo */}
-            <Link to="/">
-              <img
-                className="homepage__logo"
-                src={brandLogo}
-                alt="Brand Logo"
-              />
-            </Link>
-
-            {/* Profile Icon: conditional based on login status */}
-            <div className="homepage__profile">
-              {isLoggedIn ? (
-                <DropDown handleLogout={handleLogout}/>
-              ) : (
-                <Link to="/login">
-                  <button className="homepage__profile-button">
-                    <img
-                      className="homepage__profile-icon"
-                      src={profileIcon}
-                      alt="Default Profile Icon"
-                    />
-                  </button>
-                </Link>
-              )}
-            </div>
-          </div>
-
-          <h1 className={`homepage__title ${titleClass}`}>Skintuition</h1>
-        </div>
+        <HeroHeader isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       </div>
-
       <OurMission />
-      <BrandCarousel/>
-
-      {/* <NavBar />
-      <Hero />
-      <OurMission />
+      <h2 className="homepage__carousel-title">
+        <span>Trusted by the Best in Skincare</span>
+      </h2>
+      <BrandCarousel />
       <FeatureCards />
-      <Footer /> */}
+      <Footer />
     </>
   );
 }

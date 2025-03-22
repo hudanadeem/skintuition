@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import "./OurMission.scss";
 import bottle3 from "../../assets/Icons/bottles-3.jpg";
+import { Link } from "react-router-dom";
 
 function OurMission() {
   const imageRef = useRef(null);
@@ -45,12 +46,15 @@ function OurMission() {
             lists, making it easier for you to make informed choices about the
             products you use every day. Whether you're scanning a product label
             or pasting an ingredient list, we're here to provide you with
-            personalized insights tailored to your unique skin type. Let's embark
-            on this journey to better skin together!
+            personalized insights tailored to your unique skin type. Let's
+            embark on this journey to better skin together!
           </p>
           <div className="our-mission__cta">
             <p>Ready to take control of your skincare routine?</p>
           </div>
+          <Link to="/quiz" className="our-mission__cta-button">
+            Start Now
+          </Link>
         </div>
       </div>
     </section>

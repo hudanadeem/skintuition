@@ -2,12 +2,17 @@
 @use "../../styles/partials/variables" as *;
 
 .core-functionality {
-  background: #e8e8e4; // Platinum background
-  padding: 4rem 2rem;
+  background: radial-gradient(
+    circle at 22% center,
+    #ffffff 0%,
+    #ffeae4 25%,
+    #fcd5ce 40%
+  );
+  padding: 8rem 4rem;
   text-align: center;
 
   &__headline {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 600;
     color: #83494c; // Darker shade for contrast
     margin-bottom: 2rem;
@@ -18,7 +23,6 @@
     justify-content: center;
     gap: 2rem;
     flex-wrap: nowrap;
-    max-width: 1200px;
     margin: 0 auto;
   }
 
@@ -51,13 +55,15 @@
       padding: 12% 1.25rem 1.875rem;
       background: linear-gradient(
         180deg,
-        hsla(0, 0%, 0%, 0) 0%,
-        hsla(0, 0%, 0%, 0.3) 10%,
-        hsl(0, 0%, 0%) 100%
+        hsla(0, 0%, 100%, 0) 0%,
+        // fully transparent white
+        hsla(30, 100%, 90%, 0.3) 10%,
+        // soft peach glow (light tint)
+        #fff0eb 100% // bright warm 
       );
       grid-column: 1 / 2;
       grid-row: 1 / 2;
-      color: #ece4db; // Linen for text
+      color: #83494c; // Linen for text
     }
 
     &__title {
@@ -65,6 +71,8 @@
       width: fit-content;
       font-size: 1.5rem;
       font-weight: 600;
+      text-transform: uppercase;
+
 
       &::after {
         content: "";
@@ -73,12 +81,12 @@
         width: calc(100% + 1.25rem);
         bottom: calc((1.25rem - 0.5rem) * -1);
         left: -1.25rem;
-        background-color: #ffd7ba; // Apricot for underline
+        background-color: #83494c; // Apricot for underline
       }
     }
 
     &__description {
-      font-size: 1rem;
+      font-size: 1.25rem;
       line-height: 1.5;
     }
 
@@ -89,15 +97,68 @@
       font-weight: bold;
       border-radius: 0.45em;
       border: none;
-      background-color: #ffd7ba; // Apricot for button
+      background-color: #83494c;
       font-family: "Garbata", sans-serif;
       font-size: 1.125rem;
-      color: #83494c; // Darker shade for contrast
+      color: #fcd5ce;
       cursor: pointer;
-      transition: background 0.3s ease;
-
+      transition: all 0.3s ease;
+    
       &:hover {
-        background-color: #fec89a; // Peach for hover
+        background-color: #5e2f32; // deeper plum shade
+        transform: scale(1.05);
+        box-shadow: 0 6px 20px rgba(131, 73, 76, 0.4); // warm glow
+        color: #fff0eb;
+      }
+    
+      &:focus {
+        outline: none;
+        transform: scale(1.03);
+        box-shadow: 0 0 0 3px rgba(252, 213, 206, 0.5);
+      }
+    }
+    
+  }
+  &__wrapper {
+    font-family: "Garbata";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__intro {
+    text-align: left;
+    padding: 2rem;
+    color: #6a3a3d;
+    width: 40%;
+
+    p {
+      font-size: 1.5rem;
+      line-height: 1.6;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 1rem;
+
+      li {
+        position: relative;
+        padding-left: 2rem;
+        margin-bottom: 1rem;
+        font-size: 1.5rem;
+        font-weight: 200;
+        color: #5a2d2f;
+
+        &::before {
+          content: "✓";
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: #83494c;
+          font-weight: bold;
+          font-size: 1.2rem;
+        }
       }
     }
   }
@@ -127,6 +188,8 @@
   .core-functionality__feature-card__button {
     opacity: 0;
     transition: transform 500ms ease-out, opacity 500ms ease-out;
+    text-decoration: none;
+    width: 100%;
   }
 
   .core-functionality__feature-card:hover,
@@ -184,7 +247,9 @@
 
 @media (any-hover: hover) and (any-pointer: fine) {
   .core-functionality__feature-card__content {
-    transform: translateY(62%); // Adjust to make the content vertically centered
+    transform: translateY(
+      62%
+    ); // Adjust to make the content vertically centered
     transition: transform 500ms ease-out;
     transition-delay: 500ms;
   }

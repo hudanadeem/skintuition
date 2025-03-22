@@ -57,11 +57,11 @@
   }
   &__profile {
     height: 3rem;
-    width: auto; 
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    position: relative; 
+    position: relative;
     z-index: 1002;
   }
 
@@ -90,4 +90,45 @@
     border-radius: 50%;
     object-fit: cover;
   }
+  &__carousel-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 2.25rem;
+    font-weight: 600;
+    color: #83494c;
+    text-align: center;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    font-family: "Garbata", serif;
+    background: radial-gradient(circle, #fcd5ce 30%, #ffeae4 90%, #ffffff 100%);
+    position: relative;
+  
+    span {
+      position: relative;
+      padding: 0 1rem;
+      white-space: nowrap;
+  
+      &::before,
+      &::after {
+        content: "";
+        display: inline-block;
+        width: 350px;
+        height: 2px;
+        background-color: #83494c;
+        vertical-align: middle;
+        margin: 0 1rem;
+      }
+  
+      &::before {
+        margin-right: 1rem;
+      }
+  
+      &::after {
+        margin-left: 1rem;
+      }
+    }
+  }
+  
 }
