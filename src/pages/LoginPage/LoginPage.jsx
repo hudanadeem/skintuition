@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./LoginPage.scss";
+import { useLocation, useNavigate } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 
 function LoginPage() {
@@ -9,6 +9,8 @@ function LoginPage() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -28,8 +30,9 @@ function LoginPage() {
       );
 
       if (response.data.token) {
-        localStorage.setItem("token", response.data.token); // Store token in localStorage
-        navigate("/");
+        localStorage.setItem("token", response.data.token);
+        const redirectPath = location.state?.from || "/";
+        navigate(redirectPath);
       } else {
         setError("Login failed");
       }

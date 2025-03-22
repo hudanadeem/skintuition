@@ -1,112 +1,122 @@
+.page__container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(
+    ellipse 80% 47% at center,
+    #fffdfc 0%,
+    #fffdfc 30%,
+    #ffeae4 50%,
+    #fcd5ce 75%,
+    #fcd5ce 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .quiz-page {
-    max-width: 600px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background: #f8edeb; // Seashell background
+  max-width: 640px;
+  margin: 9rem auto 4rem;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  font-family: "Garbata", serif;
+  color: #5a2d2f;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Center content horizontally
+  justify-content: center; // Center content vertically
+  min-height: 70vh; // Ensure the container takes up enough space
+
+  &__title {
+    font-size: 2.75rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #83494c;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__content {
+    width: 100%;
+  }
+
+  &__question {
+    scroll-margin-top: 300px;
+    padding: 1rem;
     border-radius: 1rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-family: "Garbata", sans-serif;
-    color: #6a3a3d; // Darker shade for text
-  
-    &__title {
-      font-size: 2.5rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-  
-    &__progress {
-      font-size: 1rem;
-      font-weight: 600;
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #83494c; // Darker shade for progress text
-    }
-  
-    &__question {
-      margin-bottom: 1.5rem;
-  
-      h3 {
-        font-size: 1.25rem;
-        font-weight: 600;
-        margin-bottom: 1rem;
-      }
-    }
-  
-    &__options {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-  
-    &__option-button {
-      background-color: #83494c; // Darker shade for button
-      color: #fae1dd; // Light text
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-family: "Garbata", sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-  
-      &:hover {
-        background-color: #6a3a3d; // Darker shade on hover
-      }
-    }
-  
-    &__submit-button {
-      background-color: #83494c; // Darker shade for button
-      color: #fae1dd; // Light text
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-family: "Garbata", sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      width: 100%;
-      margin-top: 1rem;
-  
-      &:hover {
-        background-color: #6a3a3d; // Darker shade on hover
-      }
-    }
-  
-    &__result {
-      text-align: center;
-  
-      h2 {
-        font-size: 2rem;
-        font-weight: 600;
-        margin-bottom: 1.5rem;
-      }
-    }
-  
-    &__restart-button {
-      background-color: #83494c; // Darker shade for button
-      color: #fae1dd; // Light text
-      padding: 0.75rem 1.5rem;
-      border: none;
-      border-radius: 0.5rem;
-      font-family: "Garbata", sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-  
-      &:hover {
-        background-color: #6a3a3d; // Darker shade on hover
-      }
-    }
-  
-    &__loading,
-    &__error {
-      text-align: center;
+    margin-bottom: 2rem;
+    animation: slideFadeIn 0.5s ease forwards;
+    opacity: 0;
+    transform: translateY(30px);
+
+    h3 {
       font-size: 1.25rem;
       font-weight: 600;
-      color: #ff6b6b; // Error color
+      margin-bottom: 1rem;
+      text-align: center;
     }
   }
+
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  &__option-button,
+  &__submit-button,
+  &__scan-button {
+    background-color: #83494c;
+    color: #fff0eb;
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    font-family: inherit;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(131, 73, 76, 0.2);
+
+    &:hover {
+      background-color: #6a3a3d;
+      transform: scale(1.05);
+    }
+  }
+
+  &__submit-button {
+    margin-top: 1.5rem;
+    width: 100%;
+  }
+
+  &__result {
+    text-align: center;
+    padding: 2rem;
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #83494c;
+      margin-bottom: 2rem;
+    }
+  }
+
+  &__loading,
+  &__error {
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #e63946;
+    padding: 2rem 1rem;
+  }
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
