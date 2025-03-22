@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 import "./BrandCarousel.scss";
 
-// Static image imports (you can also dynamically require if needed)
+// Static image imports
 import brand1 from "../../assets/images/the-ordinary.png";
 import brand2 from "../../assets/images/cerave.png";
 import brand3 from "../../assets/images/tatcha.png";
-import brand4 from "../../assets/images/drunk-elephant.png";
+import brand4 from "../../assets/images/la-roche.png";
 import brand5 from "../../assets/images/glossier.png";
 import brand6 from "../../assets/images/paulas-choice.png";
 import brand7 from "../../assets/images/la-mer.png";
@@ -30,30 +30,33 @@ function BrandCarousel() {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    const scrollAmount = 1; // pixels per step
-    const intervalSpeed = 40; // ms per step (lower = faster)
+    const scrollAmount = 2.5; // pixels per step
+    const intervalSpeed = 20; // ms per step
     const track = carouselRef.current;
 
     const scrollInterval = setInterval(() => {
       if (track) {
-        // If we're at the end, reset to start
-        if (track.scrollLeft + track.clientWidth >= track.scrollWidth) {
-          track.scrollTo({ left: 0, behavior: "auto" });
+        // Reset scroll when halfway through the duplicated list
+        if (track.scrollLeft >= track.scrollWidth / 2) {
+          track.scrollLeft = 0;
         } else {
           track.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }
       }
     }, intervalSpeed);
 
-    return () => clearInterval(scrollInterval); // Cleanup on unmount
+    return () => clearInterval(scrollInterval);
   }, []);
+
+  // Duplicate the brand list to simulate infinite loop
+  const fullBrandList = [...brandImages, ...brandImages, ...brandImages, ...brandImages, ...brandImages, ...brandImages];
 
   return (
     <div className="brand-carousel">
       <div className="brand-carousel__track" ref={carouselRef}>
-        {brandImages.map((imgSrc, index) => (
+        {fullBrandList.map((imgSrc, index) => (
           <div key={index} className="brand-logo">
-            <img src={imgSrc} alt={`Brand ${index + 1}`} />
+            <img src={imgSrc} alt={`Brand ${index % brandImages.length + 1}`} />
           </div>
         ))}
       </div>

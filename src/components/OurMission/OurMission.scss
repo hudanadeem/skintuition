@@ -2,7 +2,8 @@
 @use "../../styles/partials/variables" as *;
 
 .our-mission {
-  background: #FCD5CE; // Seashell background
+  background: radial-gradient(circle at 72% center, #ffffff 0%, #ffeae4 25%, #fcd5ce 40%);
+
   padding: 6rem 2rem;
   color: #6a3a3d; // Darker shade for text
   font-family: "Garbata", sans-serif;
