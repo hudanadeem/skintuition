@@ -14,7 +14,7 @@ function FeatureCards() {
           <article className="core-functionality__feature-card">
             <img
               className="core-functionality__feature-card__background"
-              src={card1Img} 
+              src={card3Img} 
               alt="Personalized Analysis"
             />
             <div className="core-functionality__feature-card__content">
@@ -46,24 +46,6 @@ function FeatureCards() {
               </p>
               <Link to="/analysis" className="core-functionality__feature-card__button">
                 Try it Now
-              </Link>
-            </div>
-          </article>
-          <article className="core-functionality__feature-card">
-            <img
-              className="core-functionality__feature-card__background"
-              src={card3Img} 
-              alt="Paste Ingredients"
-            />
-            <div className="core-functionality__feature-card__content">
-              <h3 className="core-functionality__feature-card__title">
-                Paste Ingredients
-              </h3>
-              <p className="core-functionality__feature-card__description">
-                Copy and paste ingredient lists directly for instant analysis.
-              </p>
-              <Link to="/" className="core-functionality__feature-card__button">
-                Analyze Now
               </Link>
             </div>
           </article>
