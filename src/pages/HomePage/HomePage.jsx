@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 
 import "./HomePage.scss";
 import DropDown from "../../components/DropDown/DropDown";
+import BrandCarousel from "../../components/BrandCarousel/BrandCarousel";
 
 function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -84,6 +85,7 @@ function HomePage() {
       </div>
 
       <OurMission />
+      <BrandCarousel/>
 
       {/* <NavBar />
       <Hero />
