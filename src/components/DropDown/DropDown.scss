@@ -6,6 +6,7 @@
     cursor: pointer;
     text-align: left;
     color: #6a3a3d;;
+    
   
     &__info {
       display: flex;
@@ -45,9 +46,9 @@
       position: absolute;
       top: calc(100% + 24px);
       right: 0;
-      width: 200px;
-      background: #fff;
-      border-radius: 12px;
+      width: 175px;
+      background-color: #fcd5ce;
+      border-radius: 1rem;
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
       opacity: 0;
       transform: translateY(-10px);
@@ -67,7 +68,7 @@
         right: 14px;
         width: 20px;
         height: 20px;
-        background: #fff;
+        background: #fcd5ce;
         transform: rotate(45deg);
         z-index: -1;
       }
@@ -81,9 +82,11 @@
           padding: 15px 20px;
           transition: background-color 0.2s ease;
           cursor: pointer;
+          border-radius: 0.5rem;
   
           &:hover {
-            background-color: #eee;
+            background-color: #83494c;
+            color: #fcd5ce;
           }
   
           button {
