@@ -11,7 +11,7 @@
     &__info {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 1rem;
     }
   
     .user {
@@ -20,18 +20,20 @@
       h3 {
         margin: 0;
         font-weight: 600;
+        font-size: 1.5rem;
+        text-transform: capitalize;
       }
   
       p {
-        font-size: 14px;
+        font-size: 1rem;
         opacity: 0.6;
         margin: 0;
       }
     }
   
     .img-box {
-      width: 48px;
-      height: 48px;
+      width: 4rem;
+      height: 4rem;
       border-radius: 50%;
       overflow: hidden;
   

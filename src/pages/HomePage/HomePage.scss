@@ -1,6 +1,6 @@
 .homepage {
   &__container {
-    background: url(../../assets/Icons/hero_img.jpg) no-repeat center center;
+    background: url(../../assets/Icons/crystalweed-cannabis-QrK0mgbk2r0-unsplash.jpg) no-repeat center center;
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -22,7 +22,7 @@
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    height: 5rem;
+    height: 7rem;
   }
 
   &__nav.scrolled {
@@ -30,11 +30,11 @@
   }
 
   &__logo {
-    height: 4rem;
+    height: 8rem;
   }
 
   &__profile {
-    height: 3rem;
+    height: 7rem;
     width: 11rem;
   }
 
@@ -50,10 +50,11 @@
   &__title.in-nav {
     font-size: 2rem;
     position: fixed;
-    top: 1.5rem;
+    top: 3rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1001;
+    text-align: center;
   }
   &__profile {
     height: 3rem;
