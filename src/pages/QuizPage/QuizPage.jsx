@@ -114,20 +114,19 @@ function QuizPage() {
   };
 
   if (loading) {
-    return <div className="quiz-page__loading">Loading...</div>;
+    return <div className="quiz__page--loading">Loading...</div>;
   }
 
   if (error) {
-    return <div className="quiz-page__error">{error}</div>;
+    return <div className="quiz__page--error">{error}</div>;
   }
 
   return (
-    <div className="page__container">
+    <div className="quiz__page">
       <NavBar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
-      <div className="quiz-page">
-        <h1 className="quiz-page__title">Skin Type Quiz</h1>
+      <div className="quiz__page--container">
+        <h1 className="quiz__page--title">Skin Type Quiz</h1>
 
-        {/* Show quiz content only if not determining skin type and skinType is not set */}
         {!determiningSkinType && !skinType && questions.length > 0 && (
           <QuizContent
             questions={questions}
@@ -138,13 +137,9 @@ function QuizPage() {
             questionRef={questionRef}
           />
         )}
-
-        {/* Show loading state while determining skin type */}
         {determiningSkinType && (
           <DeterminingSkinType fadeOutLoading={fadeOutLoading} />
         )}
-
-        {/* Show result section when skinType is set */}
         {skinType && (
           <QuizResult skinType={skinType} handleScanNow={handleScanNow} />
         )}

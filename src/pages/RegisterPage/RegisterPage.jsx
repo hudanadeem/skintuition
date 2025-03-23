@@ -4,7 +4,7 @@ import RegisterForm from "../../components/RegisterForm/RegisterForm";
 
 function RegisterPage() {
   return (
-    <div className="page__container--register">
+    <div className="register__page">
       <NavBar />
       <RegisterForm />
     </div>

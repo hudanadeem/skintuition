@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.page__container {
+.quiz__page {
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -17,23 +17,22 @@
   );
   background-repeat: no-repeat;
   background-size: cover;
-}
 
-.quiz-page {
-  max-width: 640px;
-  margin: 9rem auto 4rem;
-  padding: 3rem 2rem;
-  border-radius: 1.5rem;
-  font-family: "Garbata";
-  color: $text-color;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center; // Center content horizontally
-  justify-content: center; // Center content vertically
-  min-height: 70vh; // Ensure the container takes up enough space
-
-  &__title {
+  &--container {
+    max-width: 640px;
+    margin: 9rem auto 4rem;
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    font-family: "Garbata";
+    color: $text-color;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 70vh;
+  }
+  &--title {
     font-size: $font-size-xxlarge;
     font-weight: 600;
     text-align: center;
@@ -42,20 +41,12 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
   }
-
-  &__loading,
-  &__error {
+  &--loading,
+  &--error {
     text-align: center;
     font-size: $font-size-large;
     font-weight: 600;
     color: $error-color;
     padding: 2rem 1rem;
-  }
-
-  @keyframes slideFadeIn {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 }

@@ -23,11 +23,9 @@ function HomePage() {
 
   return (
     <>
-      <div className="homepage">
-        <HeroHeader isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
-      </div>
+      <HeroHeader isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       <OurMission />
-      <h2 className="homepage__carousel-title">
+      <h2 className="carousel--title">
         <span>Trusted by Us</span>
       </h2>
       <BrandCarousel />

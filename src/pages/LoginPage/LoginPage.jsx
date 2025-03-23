@@ -4,7 +4,7 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 
 function LoginPage() {
   return (
-    <div className="page__container--login">
+    <div className="login__page">
       <NavBar />
       <LoginForm />
     </div>

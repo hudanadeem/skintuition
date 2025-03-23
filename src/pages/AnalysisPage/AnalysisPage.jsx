@@ -19,7 +19,6 @@ function AnalysisPage() {
 
   const baseURL = import.meta.env.VITE_API_URL;
 
-
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -51,16 +50,12 @@ function AnalysisPage() {
     formData.append("image", image);
 
     try {
-      const response = await axios.post(
-        `${baseURL}/api/analyze`,
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await axios.post(`${baseURL}/api/analyze`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
 
       setResults(response.data);
       setTimeout(() => {
@@ -82,24 +77,24 @@ function AnalysisPage() {
   };
 
   return (
-    <div className="page__container--analysis">
+    <div className="analysis__page--container">
       <NavBar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
-      <div className="analysis-page">
-        <h1 className="analysis-page__title">Scan Your Product</h1>
-        {error && <p className="analysis-page__error">{error}</p>}
+      <div className="analysis__page">
+        <h1 className="analysis__page--title">Scan Your Product</h1>
+        {error && <p className="analysis__page--error">{error}</p>}
 
         <ImageUpload onImageUpload={handleImageUpload} fileName={fileName} />
 
         {image && (
           <div
-            className={`analysis-page__image-preview ${
-              isScanning ? "analysis-page__upload-scanning" : ""
+            className={`analysis__page--preview ${
+              isScanning ? "analysis__page--scanning" : ""
             }`}
           >
             <img
               src={URL.createObjectURL(image)}
               alt="Uploaded"
-              className="analysis-page__image"
+              className="analysis__page--image"
             />
           </div>
         )}
@@ -107,7 +102,7 @@ function AnalysisPage() {
         <button
           onClick={handleScan}
           disabled={isLoading}
-          className="analysis-page__scan-button"
+          className="analysis__page--button"
         >
           {isLoading ? "Scanning..." : "Scan"}
         </button>
