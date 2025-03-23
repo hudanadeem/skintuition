@@ -1,8 +1,8 @@
 import "./Footer.scss"; // Import the SCSS file
-import FaFacebook from "../../assets/Icons/facebook.png";
-import FaInstagram from "../../assets/Icons/instagram.png";
-import FaTwitter from "../../assets/Icons/twitter.png";
-import brandLogo from "../../assets/logos/skintuition_logo.png";
+import FaFacebook from "../../assets/icons/facebook.png";
+import FaInstagram from "../../assets/icons/instagram.png";
+import FaTwitter from "../../assets/icons/twitter.png";
+import brandLogo from "../../assets/logos/skintuition.png";
 
 const Footer = () => {
   return (

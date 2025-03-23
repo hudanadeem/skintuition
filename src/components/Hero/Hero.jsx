@@ -1,4 +1,4 @@
-import heroImg from "../../assets/Icons/hero_img.jpg";
+import heroImg from "../../assets/icons/hero_img.jpg";
 import "./Hero.scss";
 
 function Hero() {

@@ -1,10 +1,9 @@
-import { useState, useEffect , useRef} from "react";
+import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./AnalysisPage.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import photoIcon from "../../assets/icons/upload.png"; // Import your custom icon
-
 
 function AnalysisPage() {
   const [image, setImage] = useState(null);
@@ -63,7 +62,6 @@ function AnalysisPage() {
       setTimeout(() => {
         resultsRef.current?.scrollIntoView({ behavior: "smooth" });
       }, 100);
-      
     } catch (error) {
       console.error("Error scanning image:", error);
       setError("Failed to scan image. Please try again.");

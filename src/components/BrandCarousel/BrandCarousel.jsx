@@ -2,16 +2,16 @@ import { useEffect, useRef } from "react";
 import "./BrandCarousel.scss";
 
 // Static image imports
-import brand1 from "../../assets/images/the_ordinary.png";
-import brand2 from "../../assets/images/cerave.png";
-import brand3 from "../../assets/images/elf.png";
-import brand4 from "../../assets/images/la-roche.png";
-import brand5 from "../../assets/images/glossier.png";
-import brand6 from "../../assets/images/paulas-choice.png";
-import brand7 from "../../assets/images/la-mer.png";
-import brand8 from "../../assets/images/dr-ceuracle.webp";
-import brand9 from "../../assets/images/sundayriley.png";
-import brand10 from "../../assets/images/kiehls.png";
+import brand1 from "../../assets/logos/the-ordinary.png";
+import brand2 from "../../assets/logos/cerave.png";
+import brand3 from "../../assets/logos/elf.png";
+import brand4 from "../../assets/logos/la-roche.png";
+import brand5 from "../../assets/logos/glossier.png";
+import brand6 from "../../assets/logos/paulas-choice.png";
+import brand7 from "../../assets/logos/la-mer.png";
+import brand8 from "../../assets/logos/dr-ceuracle.webp";
+import brand9 from "../../assets/logos/sundayriley.png";
+import brand10 from "../../assets/logos/kiehls.png";
 
 const brandImages = [
   brand1,

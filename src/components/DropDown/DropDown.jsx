@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import profileImage from "../../assets/Icons/logged-in.png";
+import profileImage from "../../assets/icons/logged-in.png";
 import "./DropDown.scss";
 
 function DropDown({ handleLogout }) {

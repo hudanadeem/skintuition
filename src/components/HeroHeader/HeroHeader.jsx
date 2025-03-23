@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import brandLogo from "../../assets/logos/skintuition_logo.png";
-import profileIcon from "../../assets/Icons/user-profile.png";
+import brandLogo from "../../assets/logos/skintuition.png";
+import profileIcon from "../../assets/icons/logged-out.png";
 import DropDown from "../DropDown/DropDown";
 
 import "./HeroHeader.scss";

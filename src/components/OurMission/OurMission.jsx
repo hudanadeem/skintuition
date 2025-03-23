@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./OurMission.scss";
-import bottle3 from "../../assets/Icons/bottles-3.jpg";
+import bottle3 from "../../assets/images/bottles-3.jpg";
 import { Link } from "react-router-dom";
 
 function OurMission() {
