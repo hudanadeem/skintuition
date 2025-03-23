@@ -1,3 +1,7 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
 .homepage {
   &__container {
     background: url(../../assets/images/skincare-back5.jpg) no-repeat center center;
@@ -103,7 +107,7 @@
     text-align: center;
     padding-top: 4rem;
     padding-bottom: 2rem;
-    font-family: "Garbata", serif;
+    font-family: "Garbata";
     background: radial-gradient(circle, #fcd5ce 30%, #ffeae4 90%, #ffffff 100%);
     position: relative;
   

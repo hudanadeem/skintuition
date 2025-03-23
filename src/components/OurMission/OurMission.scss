@@ -1,5 +1,6 @@
-@use "../../styles/partials/typography" as *;
+@use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
 
 .our-mission {
   background: radial-gradient(
@@ -11,7 +12,7 @@
 
   padding: 8rem 2rem;
   color: #83494c; // Darker shade for text
-  font-family: "Garbata", sans-serif;
+  font-family: "Garbata";
 
   &__container {
     display: flex;
@@ -64,7 +65,7 @@
   }
   &__cta-button {
     display: inline-block;
-    font-family: "Garbata", serif;
+    font-family: "Garbata";
     font-weight: 600;
     font-size: 1.7rem;
     text-transform: uppercase;

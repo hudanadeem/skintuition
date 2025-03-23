@@ -1,9 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
 .quiz-page {
   max-width: 640px;
   margin: 9rem auto 4rem;
   padding: 3rem 2rem;
   border-radius: 1.5rem;
-  font-family: "Garbata", serif;
+  font-family: "Garbata";
   color: #5a2d2f;
   position: relative;
   display: flex;
