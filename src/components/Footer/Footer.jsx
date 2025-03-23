@@ -1,15 +1,7 @@
-import "./Footer.scss"; // Import the SCSS file
-import FaFacebook from "../../assets/icons/facebook.png";
-import FaInstagram from "../../assets/icons/instagram.png";
-import FaTwitter from "../../assets/icons/twitter.png";
-import brandLogo from "../../assets/logos/skintuition.png";
+import "./Footer.scss";
 
 const Footer = () => {
-  return (
-    <div className="footer__copyright">
-      © 2025 Skintuition. All rights reserved.
-    </div>
-  );
+  return <div className="footer">© 2025 Skintuition. All rights reserved.</div>;
 };
 
 export default Footer;

@@ -1,7 +1,5 @@
 import { useEffect, useRef } from "react";
 import "./BrandCarousel.scss";
-
-// Static image imports
 import brand1 from "../../assets/logos/the-ordinary.png";
 import brand2 from "../../assets/logos/cerave.png";
 import brand3 from "../../assets/logos/elf.png";
@@ -48,13 +46,12 @@ function BrandCarousel() {
   const carouselRef = useRef(null);
 
   useEffect(() => {
-    const scrollAmount = 2.5; // pixels per step
-    const intervalSpeed = 20; // ms per step
+    const scrollAmount = 2.5;
+    const intervalSpeed = 20;
     const track = carouselRef.current;
 
     const scrollInterval = setInterval(() => {
       if (track) {
-        // Reset scroll when halfway through the duplicated list
         if (track.scrollLeft >= track.scrollWidth / 2) {
           track.scrollLeft = 0;
         } else {
@@ -66,7 +63,6 @@ function BrandCarousel() {
     return () => clearInterval(scrollInterval);
   }, []);
 
-  // Duplicate the brand list to simulate infinite loop
   const fullBrandList = [
     ...brandItems,
     ...brandItems,
@@ -77,15 +73,12 @@ function BrandCarousel() {
   ];
 
   return (
-    <div className="brand-carousel">
-      <div className="brand-carousel__track" ref={carouselRef}>
+    <div className="carousel">
+      <div className="carousel__container" ref={carouselRef}>
         {fullBrandList.map((item, index) => (
-          <div key={index} className="brand-logo">
+          <div key={index} className="carousel__logo">
             <a href={item.link} target="_blank" rel="noopener noreferrer">
-              <img
-                src={item.image}
-                alt={`Brand ${(index % brandItems.length) + 1}`}
-              />
+              <img src={item.image} alt="Brand Logo" />
             </a>
           </div>
         ))}
