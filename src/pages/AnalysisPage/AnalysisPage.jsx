@@ -3,14 +3,16 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./AnalysisPage.scss";
 import NavBar from "../../components/NavBar/NavBar";
+import photoIcon from "../../assets/icons/upload.png"; // Import your custom icon
 
 function AnalysisPage() {
   const [image, setImage] = useState(null);
+  const [fileName, setFileName] = useState(""); // State for file name
   const [results, setResults] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isScanning, setIsScanning] = useState(false); // State for scanning animation
+  const [isScanning, setIsScanning] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -26,6 +28,7 @@ function AnalysisPage() {
     const file = e.target.files[0];
     if (file) {
       setImage(file);
+      setFileName(file.name); // Set the file name
     }
   };
 
@@ -36,7 +39,7 @@ function AnalysisPage() {
     }
 
     setIsLoading(true);
-    setIsScanning(true); // Start scanning animation
+    setIsScanning(true);
     setError("");
 
     const formData = new FormData();
@@ -60,7 +63,7 @@ function AnalysisPage() {
       setError("Failed to scan image. Please try again.");
     } finally {
       setIsLoading(false);
-      setIsScanning(false); // Stop scanning animation
+      setIsScanning(false);
     }
   };
 
@@ -79,30 +82,55 @@ function AnalysisPage() {
 
         {/* Image Upload */}
         <div className="analysis-page__upload">
-          <label htmlFor="image-upload" className="analysis-page__upload-label">
-            Upload Image
-          </label>
-          <input
-            type="file"
-            id="image-upload"
-            accept="image/*"
-            onChange={handleImageUpload}
-            className="analysis-page__upload-input"
-          />
-          {image && (
-            <div
-              className={`analysis-page__image-preview ${
-                isScanning ? "analysis-page__upload-scanning" : ""
-              }`}
-            >
+          <div className="analysis-page__upload-group">
+            <div className="analysis-page__upload-icon">
               <img
-                src={URL.createObjectURL(image)}
-                alt="Uploaded"
-                className="analysis-page__image"
+                src={photoIcon}
+                alt="Upload Icon"
+                className="analysis-page__upload-icon-img"
               />
             </div>
-          )}
+
+            <input
+              type="text"
+              readOnly
+              value={fileName}
+              placeholder="Upload Image"
+              className="analysis-page__upload-input"
+            />
+
+            <input
+              type="file"
+              id="image-upload"
+              accept="image/*"
+              onChange={handleImageUpload}
+              className="analysis-page__upload-hidden"
+            />
+
+            <button
+              type="button"
+              className="analysis-page__upload-browse"
+              onClick={() => document.getElementById("image-upload").click()}
+            >
+              Browse
+            </button>
+          </div>
         </div>
+
+        {/* Image Preview */}
+        {image && (
+          <div
+            className={`analysis-page__image-preview ${
+              isScanning ? "analysis-page__upload-scanning" : ""
+            }`}
+          >
+            <img
+              src={URL.createObjectURL(image)}
+              alt="Uploaded"
+              className="analysis-page__image"
+            />
+          </div>
+        )}
 
         {/* Scan Button */}
         <button
@@ -125,7 +153,8 @@ function AnalysisPage() {
                 <ul>
                   {results.beneficial.map((ingredient, index) => (
                     <li key={index}>
-                      <strong>{ingredient.name}</strong>: {ingredient.description}
+                      <strong>{ingredient.name}</strong>:{" "}
+                      {ingredient.description}
                     </li>
                   ))}
                 </ul>
@@ -142,7 +171,8 @@ function AnalysisPage() {
                 <ul>
                   {results.potentialIrritants.map((ingredient, index) => (
                     <li key={index}>
-                      <strong>{ingredient.name}</strong>: {ingredient.description}
+                      <strong>{ingredient.name}</strong>:{" "}
+                      {ingredient.description}
                     </li>
                   ))}
                 </ul>
@@ -158,7 +188,8 @@ function AnalysisPage() {
                 <ul>
                   {results.harmful.map((ingredient, index) => (
                     <li key={index}>
-                      <strong>{ingredient.name}</strong>: {ingredient.description}
+                      <strong>{ingredient.name}</strong>:{" "}
+                      {ingredient.description}
                     </li>
                   ))}
                 </ul>
