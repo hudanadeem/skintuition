@@ -3,8 +3,8 @@
 @use "../../styles/partials/typography" as *;
 
 .footer__copyright {
-  background-color: #fcd5ce;
-  color: #83494c;
+  background-color: $light-apricot;
+  color: $primary-color;
   padding: 2rem;
   font-family: "Ariel";
   font-size: 0.9rem;

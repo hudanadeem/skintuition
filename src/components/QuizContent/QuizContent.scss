@@ -8,7 +8,7 @@
   padding: 3rem 2rem;
   border-radius: 1.5rem;
   font-family: "Garbata";
-  color: #5a2d2f;
+  color: $text-color;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
     transform: translateY(30px);
 
     h3 {
-      font-size: 1.25rem;
+      font-size: $font-size-large;
       font-weight: 600;
       margin-bottom: 1rem;
       text-align: center;
@@ -52,13 +52,13 @@
 
   &__option-button,
   &__submit-button {
-    background-color: #83494c;
-    color: #fff0eb;
+    background-color: $primary-color;
+    color: $light-peach;
     padding: 0.85rem 2rem;
     border: none;
     border-radius: 2rem;
     font-family: inherit;
-    font-size: 1.125rem;
+    font-size: $font-size-medium;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;

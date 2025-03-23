@@ -7,7 +7,7 @@
     circle at 22% center,
     #ffffff 0%,
     #ffeae4 25%,
-    #fcd5ce 40%
+    $light-apricot 40%
   );
   padding: 8rem 4rem;
   text-align: center;
@@ -15,7 +15,7 @@
   &__headline {
     font-size: 3.5rem;
     font-weight: 600;
-    color: #83494c; // Darker shade for contrast
+    color: $primary-color; // Darker shade for contrast
     margin-bottom: 2rem;
   }
 
@@ -60,20 +60,19 @@
         // fully transparent white
         hsla(30, 100%, 90%, 0.3) 10%,
         // soft peach glow (light tint)
-        #fff0eb 100% // bright warm 
+        $light-peach 100% // bright warm
       );
       grid-column: 1 / 2;
       grid-row: 1 / 2;
-      color: #83494c; // Linen for text
+      color: $primary-color; // Linen for text
     }
 
     &__title {
       position: relative;
       width: fit-content;
-      font-size: 1.5rem;
+      font-size: $font-size-xlarge;
       font-weight: 600;
       text-transform: uppercase;
-
 
       &::after {
         content: "";
@@ -82,12 +81,12 @@
         width: calc(100% + 1.25rem);
         bottom: calc((1.25rem - 0.5rem) * -1);
         left: -1.25rem;
-        background-color: #83494c; // Apricot for underline
+        background-color: $primary-color; // Apricot for underline
       }
     }
 
     &__description {
-      font-size: 1.25rem;
+      font-size: $font-size-large;
       line-height: 1.5;
     }
 
@@ -98,23 +97,22 @@
       font-weight: bold;
       border-radius: 0.45em;
       border: none;
-      background-color: #83494c;
+      background-color: $primary-color;
       font-family: "Garbata";
-      font-size: 1.125rem;
-      color: #fcd5ce;
+      font-size: $font-size-medium;
+      color: $light-apricot;
       cursor: pointer;
       transition: all 0.3s ease;
-    
+
       &:hover {
-        background-color: #fff0eb; // soft light peach
-        border: 1px solid #83494c;
-        color: #83494c; // invert to match brand
+        background-color: $light-peach; // soft light peach
+        border: 1px solid $primary-color;
+        color: $primary-color; // invert to match brand
         transform: scale(1.08);
         box-shadow: 0 10px 25px rgba(255, 224, 216, 0.8); // brighter glow
         letter-spacing: 0.5px;
       }
     }
-    
   }
   &__wrapper {
     font-family: "Garbata";
@@ -130,7 +128,7 @@
     width: 40%;
 
     p {
-      font-size: 1.5rem;
+      font-size: $font-size-xlarge;
       line-height: 1.6;
     }
 
@@ -143,16 +141,16 @@
         position: relative;
         padding-left: 2rem;
         margin-bottom: 1rem;
-        font-size: 1.5rem;
+        font-size: $font-size-xlarge;
         font-weight: 200;
-        color: #5a2d2f;
+        color: $text-color;
 
         &::before {
           content: "✓";
           position: absolute;
           left: 0;
           top: 0;
-          color: #83494c;
+          color: $primary-color;
           font-weight: bold;
           font-size: 1.2rem;
         }

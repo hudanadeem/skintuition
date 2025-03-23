@@ -4,7 +4,8 @@
 
 .homepage {
   &__container {
-    background: url(../../assets/images/skincare-back5.jpg) no-repeat center center;
+    background: url(../../assets/images/skincare-back5.jpg) no-repeat center
+      center;
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -30,7 +31,7 @@
   }
 
   &__nav.scrolled {
-    background-color: #fcd5ce;
+    background-color: $light-apricot;
   }
 
   &__logo {
@@ -47,7 +48,7 @@
     font-family: "Garbata";
     font-size: 14rem;
     text-transform: uppercase;
-    color: #83494c;
+    color: $primary-color;
     display: flex;
     justify-content: center;
   }
@@ -103,38 +104,42 @@
     gap: 1rem;
     font-size: 2.25rem;
     font-weight: 600;
-    color: #83494c;
+    color: $primary-color;
     text-align: center;
     padding-top: 4rem;
     padding-bottom: 2rem;
     font-family: "Garbata";
-    background: radial-gradient(circle, #fcd5ce 30%, #ffeae4 90%, #ffffff 100%);
+    background: radial-gradient(
+      circle,
+      $light-apricot 30%,
+      #ffeae4 90%,
+      #ffffff 100%
+    );
     position: relative;
-  
+
     span {
       position: relative;
       padding: 0 1rem;
       white-space: nowrap;
-  
+
       &::before,
       &::after {
         content: "";
         display: inline-block;
         width: 350px;
         height: 2px;
-        background-color: #83494c;
+        background-color: $primary-color;
         vertical-align: middle;
         margin: 0 1rem;
       }
-  
+
       &::before {
         margin-right: 1rem;
       }
-  
+
       &::after {
         margin-left: 1rem;
       }
     }
   }
-  
 }

@@ -7,11 +7,11 @@
     circle at 72% center,
     #ffffff 0%,
     #ffeae4 25%,
-    #fcd5ce 40%
+    $light-apricot 40%
   );
 
   padding: 8rem 2rem;
-  color: #83494c; // Darker shade for text
+  color: $primary-color; // Darker shade for text
   font-family: "Garbata";
 
   &__container {
@@ -54,7 +54,7 @@
   }
 
   &__content {
-    font-size: 1.5rem;
+    font-size: $font-size-xlarge;
     line-height: 1.6;
     margin-bottom: 2rem;
   }
@@ -69,22 +69,20 @@
     font-weight: 600;
     font-size: 1.7rem;
     text-transform: uppercase;
-    color: #83494c;
+    color: $primary-color;
     padding: 0.85rem 0rem;
     border-radius: 2rem;
     border: none;
     margin-top: 1rem;
     text-decoration: none;
     transition: all 0.35s ease;
-  
+
     &:hover {
       transform: scale(1.5);
       padding-left: 1.7rem;
-      color: #5B3335;
+      color: #5b3335;
     }
-  
   }
-  
 }
 
 /* Animation for sliding in from the left */

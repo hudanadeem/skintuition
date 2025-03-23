@@ -1,10 +1,21 @@
-$primary-text-color: #0c1e1a;
-$primary-accent-color: #1e6655;
-$primary-background-color: #effaf7;
+// Colors
+$primary-color: #83494c; 
+$secondary-color: #6a3a3d; 
+$light-peach: #fff0eb; 
+$light-apricot: #fcd5ce; 
+$text-color: #5a2d2f; 
+$error-color: #EE6D78; 
+$error-bg: #fff3f3; 
+$light-orange: #ffb4a2; 
+$soft-pink: #e6a4b4; 
 
-$secondary-border-color: #b7cec9;
-$secondary-background-color: #e4efec;
-$secondary-text-color: #ffffff;
+// Fonts
+$font-size-small: 1rem;
+$font-size-medium:1.125rem;
+$font-size-large: 1.25rem;
+$font-size-xlarge: 1.5rem;
+$font-size-xxlarge: 2.75rem;
 
+//Screens
 $tablet-min: 768px;
 $desktop-min: 1280px;

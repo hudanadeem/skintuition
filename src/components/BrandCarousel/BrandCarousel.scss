@@ -8,7 +8,12 @@
   gap: 1rem;
   position: relative;
   padding: 2rem 1rem;
-  background: radial-gradient(circle, #fcd5ce 30%, #ffeae4 90%, #ffffff 100%);
+  background: radial-gradient(
+    circle,
+    $light-apricot 30%,
+    #ffeae4 90%,
+    #ffffff 100%
+  );
 
   &__track {
     display: flex;
@@ -30,10 +35,10 @@
     border-radius: 16px;
     background: linear-gradient(
       135deg,
-      #fcd5ce 10%,
+      $light-apricot 10%,
       #fbe3e3 45%,
       #fbe3e3 60%,
-      #fcd5ce 100%
+      $light-apricot 100%
     );
 
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
@@ -67,7 +72,7 @@
     background: none;
     border: none;
     font-size: 2.5rem;
-    color: #83494c;
+    color: $primary-color;
     cursor: pointer;
     z-index: 10;
     transition: color 0.2s ease;
