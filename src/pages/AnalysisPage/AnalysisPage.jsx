@@ -17,6 +17,9 @@ function AnalysisPage() {
   const navigate = useNavigate();
   const resultsRef = useRef(null);
 
+  const baseURL = import.meta.env.VITE_API_URL;
+
+
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (!token) {
@@ -49,7 +52,7 @@ function AnalysisPage() {
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/analyze",
+        `${baseURL}/api/analyze`,
         formData,
         {
           headers: {

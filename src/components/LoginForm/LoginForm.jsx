@@ -3,6 +3,8 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./LoginForm.scss";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,7 +22,7 @@ function LoginForm() {
 
     try {
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/auth/login`,
+        `${baseURL}/api/auth/login`,
         {
           email,
           password,

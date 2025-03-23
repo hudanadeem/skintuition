@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import "./QuizPage.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
@@ -17,7 +18,7 @@ function QuizPage() {
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
-
+  const baseURL = import.meta.env.VITE_API_URL;
   const questionRef = useRef(null);
 
   useEffect(() => {
@@ -33,16 +34,10 @@ function QuizPage() {
     const fetchQuestions = async () => {
       try {
         setLoading(true);
-        const response = await fetch(
-          "http://localhost:8080/api/skin-type/questions"
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch questions");
-        }
-        const data = await response.json();
-        setQuestions(data);
+        const response = await axios.get(`${baseURL}/api/skin-type/questions`);
+        setQuestions(response.data);
       } catch (err) {
-        setError(err.message);
+        setError(err.message || "Failed to fetch questions");
       } finally {
         setLoading(false);
       }
@@ -82,32 +77,27 @@ function QuizPage() {
       setDeterminingSkinType(true);
       setLoading(true);
 
-      const response = await fetch("http://localhost:8080/api/skin-type", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        body: JSON.stringify({ answers }),
-      });
+      const response = await axios.post(
+        `${baseURL}/api/skin-type`,
+        { answers },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
 
-      if (!response.ok) {
-        throw new Error("Failed to determine skin type");
-      }
-
-      const data = await response.json();
-
-      // Simulate a delay for processing
       setTimeout(() => {
         setFadeOutLoading(true);
         setTimeout(() => {
-          setSkinType(data.skinType);
+          setSkinType(response.data.skinType);
           setDeterminingSkinType(false);
           setFadeOutLoading(false);
         }, 500);
       }, 1500);
     } catch (err) {
-      setError(err.message);
+      setError(err.message || "Failed to determine skin type");
     } finally {
       setLoading(false);
     }

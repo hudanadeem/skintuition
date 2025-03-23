@@ -3,6 +3,8 @@ import axios from "axios";
 import profileImage from "../../assets/icons/logged-in.png";
 import "./DropDown.scss";
 
+const baseURL = import.meta.env.VITE_API_URL;
+
 function DropDown({ handleLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [userData, setUserData] = useState({ name: "", email: "" });
@@ -19,7 +21,7 @@ function DropDown({ handleLogout }) {
         if (!token) return;
 
         const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}/api/users/profile`,
+          `${baseURL}/api/users/profile`,
           {
             headers: {
               Authorization: `Bearer ${token}`,
