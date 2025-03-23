@@ -1,3 +1,91 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
+
+.homepage {
+  &__container {
+    background: url(../../assets/images/skincare-back5.jpg) no-repeat center
+      center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 6rem;
+    padding-top: 40rem;
+  }
+  &__title {
+    font-family: "Garbata";
+    font-size: 14rem;
+    text-transform: uppercase;
+    color: $primary-color;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title.in-nav {
+    font-size: 2.5rem;
+    position: fixed;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    text-align: center;
+  }
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    height: 4rem;
+  }
+
+  &__nav.scrolled {
+    background-color: $light-apricot;
+  }
+
+  &__logo {
+    height: 5rem;
+    margin-top: 0.5rem;
+  }
+  &__profile {
+    height: 3rem;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 1002;
+  }
+  &__profile-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &__profile-icon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
