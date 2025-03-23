@@ -21,13 +21,10 @@ function LoginForm() {
     }
 
     try {
-      const response = await axios.post(
-        `${baseURL}/api/auth/login`,
-        {
-          email,
-          password,
-        }
-      );
+      const response = await axios.post(`${baseURL}/api/auth/login`, {
+        email,
+        password,
+      });
 
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
@@ -43,11 +40,11 @@ function LoginForm() {
   };
 
   return (
-    <div className="login-page">
-      <h1 className="login-page__title">Login</h1>
-      {error && <p className="login-page__error">{error}</p>}
-      <form className="login-page__form" onSubmit={handleLogin}>
-        <div className="login-page__form-group">
+    <div className="login">
+      <h1 className="login__title">Login</h1>
+      {error && <p className="login__error">{error}</p>}
+      <form className="login__form" onSubmit={handleLogin}>
+        <div className="login__form--group">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -57,7 +54,7 @@ function LoginForm() {
             placeholder="Enter your email"
           />
         </div>
-        <div className="login-page__form-group">
+        <div className="login__form--group">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -67,11 +64,11 @@ function LoginForm() {
             placeholder="Enter your password"
           />
         </div>
-        <button type="submit" className="login-page__submit-button">
+        <button type="submit" className="login__submit--button">
           Login
         </button>
       </form>
-      <p className="login-page__register-link">
+      <p className="login__register--link">
         Don't have an account? <a href="/register">Register here</a>.
       </p>
     </div>

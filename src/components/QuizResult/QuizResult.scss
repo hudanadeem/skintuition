@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.quiz-page {
+.quiz {
   &__result {
     opacity: 0;
     transform: translateY(20px);
@@ -23,7 +23,7 @@
       margin-bottom: 2rem;
     }
   }
-  &__scan-button {
+  &__scan--button {
     background-color: $primary-color;
     color: $light-peach;
     padding: 0.85rem 2rem;

@@ -41,11 +41,11 @@ function RegisterForm() {
   };
 
   return (
-    <div className="register-page">
-      <h1 className="register-page__title">Register</h1>
-      {error && <p className="register-page__error">{error}</p>}
-      <form className="register-page__form" onSubmit={handleRegister}>
-        <div className="register-page__form-group">
+    <div className="register">
+      <h1 className="register__title">Register</h1>
+      {error && <p className="register__error">{error}</p>}
+      <form className="register__form" onSubmit={handleRegister}>
+        <div className="register__form--group">
           <label htmlFor="name">Name</label>
           <input
             type="text"
@@ -55,7 +55,7 @@ function RegisterForm() {
             placeholder="Enter your name"
           />
         </div>
-        <div className="register-page__form-group">
+        <div className="register__form--group">
           <label htmlFor="email">Email</label>
           <input
             type="email"
@@ -65,7 +65,7 @@ function RegisterForm() {
             placeholder="Enter your email"
           />
         </div>
-        <div className="register-page__form-group">
+        <div className="register__form--group">
           <label htmlFor="password">Password</label>
           <input
             type="password"
@@ -75,7 +75,7 @@ function RegisterForm() {
             placeholder="Enter your password"
           />
         </div>
-        <div className="register-page__form-group">
+        <div className="register__form--group">
           <label htmlFor="skinType">Skin Type (Optional)</label>
           <select
             id="skinType"
@@ -90,11 +90,11 @@ function RegisterForm() {
             <option value="sensitive">Sensitive</option>
           </select>
         </div>
-        <button type="submit" className="register-page__submit-button">
+        <button type="submit" className="register__submit--button">
           Register
         </button>
       </form>
-      <p className="register-page__login-link">
+      <p className="register__login--link">
         Already have an account? <a href="/login">Login here</a>.
       </p>
     </div>

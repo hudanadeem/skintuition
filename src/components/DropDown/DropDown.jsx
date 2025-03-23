@@ -20,14 +20,11 @@ function DropDown({ handleLogout }) {
 
         if (!token) return;
 
-        const response = await axios.get(
-          `${baseURL}/api/users/profile`,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const response = await axios.get(`${baseURL}/api/users/profile`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         const { name, email } = response.data;
         setUserData({ name, email });
@@ -42,16 +39,16 @@ function DropDown({ handleLogout }) {
   return (
     <div className="profile" onClick={toggleDropdown}>
       <div className="profile__info">
-        <div className="user">
+        <div className="profile__user">
           <h3>{userData.name || "Loading..."}</h3>
           <p>{userData.email || " "}</p>
         </div>
-        <div className="img-box">
+        <div className="profile__img">
           <img src={profileImage} alt="user" />
         </div>
       </div>
 
-      <div className={`menu ${menuOpen ? "active" : ""}`}>
+      <div className={`profile__menu ${menuOpen ? "active" : ""}`}>
         <ul>
           <li>Profile</li>
           <li>Help</li>

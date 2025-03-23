@@ -2,13 +2,13 @@ import "./ImageUpload.scss";
 
 function ImageUpload({ onImageUpload, fileName }) {
   return (
-    <div className="analysis-page__upload">
-      <div className="analysis-page__upload-group">
-        <div className="analysis-page__upload-icon">
+    <div className="image__upload">
+      <div className="image__upload--group">
+        <div className="image__upload--icon">
           <img
             src="/src/assets/icons/upload.png"
             alt="Upload Icon"
-            className="analysis-page__upload-icon-img"
+            className="image__upload--icon--img"
           />
         </div>
 
@@ -17,7 +17,7 @@ function ImageUpload({ onImageUpload, fileName }) {
           readOnly
           value={fileName}
           placeholder="Upload Image"
-          className="analysis-page__upload-input"
+          className="image__upload--input"
         />
 
         <input
@@ -25,12 +25,12 @@ function ImageUpload({ onImageUpload, fileName }) {
           id="image-upload"
           accept="image/*"
           onChange={onImageUpload}
-          className="analysis-page__upload-hidden"
+          className="image__upload--hidden"
         />
 
         <button
           type="button"
-          className="analysis-page__upload-browse"
+          className="image__upload--browse"
           onClick={() => document.getElementById("image-upload").click()}
         >
           Browse

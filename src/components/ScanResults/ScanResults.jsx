@@ -2,29 +2,29 @@ import "./ScanResults.scss";
 
 function ScanResults({ results, resultsRef }) {
   return (
-    <div className="analysis-page__results" ref={resultsRef}>
-      <h2 className="analysis-page__results-title">Scan Results</h2>
+    <div className="analysis" ref={resultsRef}>
+      <h2 className="analysis__results--title">Scan Results</h2>
 
       {[
         { label: "Beneficial Ingredients", data: results.beneficial },
         { label: "Potential Irritants", data: results.potentialIrritants },
         { label: "Harmful Ingredients", data: results.harmful },
       ].map((section, i) => (
-        <div key={i} className="analysis-page__results-section">
+        <div key={i} className="analysis__results--section">
           <h3>{section.label}</h3>
           {section.data && section.data.length > 0 ? (
-            <div className="analysis-page__results-bubbles">
+            <div className="analysis__results--bubbles">
               {section.data.map((ingredient, index) => (
                 <div
                   key={index}
-                  className="analysis-page__bubble"
+                  className="analysis__bubble"
                   style={{ animationDelay: `${index * 800}ms` }}
                 >
-                  <div className="analysis-page__bubble-inner">
-                    <div className="analysis-page__bubble-front">
+                  <div className="analysis__bubble--inner">
+                    <div className="analysis__bubble--front">
                       {ingredient.name}
                     </div>
-                    <div className="analysis-page__bubble-back">
+                    <div className="analysis__bubble--back">
                       {ingredient.description}
                     </div>
                   </div>

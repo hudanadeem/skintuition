@@ -16,9 +16,9 @@ function NavBar({ isLoggedIn, handleLogout }) {
           <DropDown handleLogout={handleLogout} />
         ) : (
           <Link to="/login">
-            <button className="navbar__profile-button">
+            <button className="navbar__profile--button">
               <img
-                className="navbar__profile-icon"
+                className="navbar__profile--icon"
                 src={profileIcon}
                 alt="Default Profile Icon"
               />

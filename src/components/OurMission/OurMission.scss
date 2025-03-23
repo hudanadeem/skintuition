@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.our-mission {
+.mission {
   background: radial-gradient(
     circle at 72% center,
     #ffffff 0%,
@@ -11,7 +11,7 @@
   );
 
   padding: 8rem 2rem;
-  color: $primary-color; // Darker shade for text
+  color: $primary-color;
   font-family: "Garbata";
 
   &__container {
@@ -19,12 +19,12 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    gap: 2rem; // Space between image and text
+    gap: 2rem;
   }
 
-  &__image-container {
-    flex: 1; // Takes up 50% of the container
-    overflow: hidden; // Ensures the image doesn't overflow
+  &__image--container {
+    flex: 1;
+    overflow: hidden;
   }
 
   &__image {
@@ -32,7 +32,7 @@
     height: 45rem;
     border-radius: 1rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    opacity: 0; // Start invisible
+    opacity: 0;
     transform: translateX(-50%);
     transition: all 1s ease-in-out;
   }
@@ -40,11 +40,6 @@
   &__image.slide-in {
     opacity: 1;
     transform: translateX(0);
-  }
-
-  &__content-container {
-    flex: 1; // Takes up 50% of the container
-    text-align: left; // Align text to the left
   }
 
   &__headline {
@@ -57,35 +52,39 @@
     font-size: $font-size-xlarge;
     line-height: 1.6;
     margin-bottom: 2rem;
+
+    &--container {
+      flex: 1;
+      text-align: left;
+    }
   }
 
   &__cta {
     font-size: 1.7rem;
     font-weight: 600;
-  }
-  &__cta-button {
-    display: inline-block;
-    font-family: "Garbata";
-    font-weight: 600;
-    font-size: 1.7rem;
-    text-transform: uppercase;
-    color: $primary-color;
-    padding: 0.85rem 0rem;
-    border-radius: 2rem;
-    border: none;
-    margin-top: 1rem;
-    text-decoration: none;
-    transition: all 0.35s ease;
+    &--button {
+      display: inline-block;
+      font-family: "Garbata";
+      font-weight: 600;
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      color: $primary-color;
+      padding: 0.85rem 0rem;
+      border-radius: 2rem;
+      border: none;
+      margin-top: 1rem;
+      text-decoration: none;
+      transition: all 0.35s ease;
 
-    &:hover {
-      transform: scale(1.5);
-      padding-left: 1.7rem;
-      color: #5b3335;
+      &:hover {
+        transform: scale(1.5);
+        padding-left: 1.7rem;
+        color: #5b3335;
+      }
     }
   }
 }
 
-/* Animation for sliding in from the left */
 @keyframes slideInLeft {
   from {
     opacity: 0;

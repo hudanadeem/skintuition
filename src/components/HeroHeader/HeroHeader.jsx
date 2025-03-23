@@ -29,20 +29,20 @@ function HeroHeader({ isLoggedIn, handleLogout }) {
   }, []);
 
   return (
-    <div className="homepage__container">
-      <div className={`homepage__nav ${isScrolled ? "scrolled" : ""}`}>
+    <div className="hero__container">
+      <div className={`hero__nav ${isScrolled ? "scrolled" : ""}`}>
         <Link to="/">
-          <img className="homepage__logo" src={brandLogo} alt="Brand Logo" />
+          <img className="hero__logo" src={brandLogo} alt="Brand Logo" />
         </Link>
 
-        <div className="homepage__profile">
+        <div className="hero__profile">
           {isLoggedIn ? (
             <DropDown handleLogout={handleLogout} />
           ) : (
             <Link to="/login">
-              <button className="homepage__profile-button">
+              <button className="hero__profile--button">
                 <img
-                  className="homepage__profile-icon"
+                  className="hero__profile--icon"
                   src={profileIcon}
                   alt="Default Profile Icon"
                 />
@@ -52,7 +52,7 @@ function HeroHeader({ isLoggedIn, handleLogout }) {
         </div>
       </div>
 
-      <h1 className={`homepage__title ${titleClass}`}>Skintuition</h1>
+      <h1 className={`hero__title ${titleClass}`}>Skintuition</h1>
     </div>
   );
 }

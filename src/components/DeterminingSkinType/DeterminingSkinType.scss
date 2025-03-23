@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.quiz-page {
+.quiz {
   &__determining {
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@
     text-align: center;
     padding: 2rem;
 
-    &--fade-out {
+    &--fade {
       opacity: 0; // Fade out the loading state
     }
 

@@ -2,7 +2,7 @@
 @use "../../styles/partials/variables" as *;
 @use "../../styles/partials/typography" as *;
 
-.login-page {
+.login {
   max-width: 640px;
   margin: 9rem auto 4rem;
   padding: 3rem 2rem;
@@ -38,7 +38,7 @@
     gap: 1.75rem;
   }
 
-  &__form-group {
+  &__form--group {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -67,7 +67,7 @@
     }
   }
 
-  &__submit-button {
+  &__submit--button {
     align-self: center;
     padding: 0.85rem 2rem;
     font-size: $font-size-medium;
@@ -87,7 +87,7 @@
     }
   }
 
-  &__register-link {
+  &__register--link {
     text-align: center;
     margin-top: 2rem;
     font-size: $font-size-small;

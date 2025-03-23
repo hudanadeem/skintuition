@@ -12,10 +12,10 @@ function OurMission() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          observer.disconnect(); // Optional: stop observing after it's visible
+          observer.disconnect();
         }
       },
-      { threshold: 0.4 } // Trigger when 40% of image is in view
+      { threshold: 0.4 }
     );
 
     if (imageRef.current) {
@@ -26,20 +26,20 @@ function OurMission() {
   }, []);
 
   return (
-    <section className="our-mission">
-      <div className="our-mission__container">
-        <div className="our-mission__image-container">
+    <section className="mission">
+      <div className="mission__container">
+        <div className="mission__image--container">
           <img
             ref={imageRef}
             src={bottle3}
             alt="skincare image"
-            className={`our-mission__image ${isVisible ? "slide-in" : ""}`}
+            className={`mission__image ${isVisible ? "slide-in" : ""}`}
           />
         </div>
 
-        <div className="our-mission__content-container">
-          <h2 className="our-mission__headline">Our Mission</h2>
-          <p className="our-mission__content">
+        <div className="mission__content--container">
+          <h2 className="mission__headline">Our Mission</h2>
+          <p className="mission__content">
             At Skintuition, we believe that understanding what goes into your
             skincare is the first step towards healthier, happier skin. Our
             mission is to empower you with the knowledge to decode ingredient
@@ -48,10 +48,10 @@ function OurMission() {
             personalized insights tailored to your unique skin type. Let's
             embark on this journey to better skin together!
           </p>
-          <div className="our-mission__cta">
+          <div className="mission__cta">
             <p>Ready to take control of your skincare routine?</p>
           </div>
-          <Link to="/quiz" className="our-mission__cta-button">
+          <Link to="/quiz" className="mission__cta--button">
             Start Now
           </Link>
         </div>
