@@ -1,0 +1,42 @@
+.quiz-page {
+  &__determining {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh; // Ensure it takes up enough space
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+
+    &--fade-out {
+      opacity: 0; // Fade out the loading state
+    }
+
+    p {
+      font-size: 1.25rem;
+      color: #83494c;
+      margin-top: 1rem;
+    }
+  }
+  &__spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #83494c;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

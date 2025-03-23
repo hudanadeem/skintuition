@@ -1,8 +1,6 @@
 import "./App.scss";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
-import ContactPage from "./pages/ContactPage/ContactPage";
-import GlossaryPage from "./pages/GlossaryPage/GlossaryPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import QuizPage from "./pages/QuizPage/QuizPage";
@@ -19,8 +17,6 @@ function App() {
       >
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
-          <Route path="/contact" element={<ContactPage />}></Route>
-          <Route path="/glossary" element={<GlossaryPage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
           <Route path="/register" element={<RegisterPage />}></Route>
           <Route path="/quiz" element={<QuizPage />}></Route>

@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import "./QuizPage.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import { useNavigate } from "react-router-dom";
+import QuizContent from "../../components/QuizContent/QuizContent";
+import DeterminingSkinType from "../../components/DeterminingSkinType/DeterminingSkinType";
+import QuizResult from "../../components/QuizResult/QuizResult";
 
 function QuizPage() {
   const [questions, setQuestions] = useState([]);
@@ -10,7 +13,7 @@ function QuizPage() {
   const [skinType, setSkinType] = useState(null);
   const [loading, setLoading] = useState(false);
   const [determiningSkinType, setDeterminingSkinType] = useState(false);
-  const [fadeOutLoading, setFadeOutLoading] = useState(false); // New state for fade-out
+  const [fadeOutLoading, setFadeOutLoading] = useState(false);
   const [error, setError] = useState("");
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
@@ -76,7 +79,7 @@ function QuizPage() {
     }
 
     try {
-      setDeterminingSkinType(true); // Start determining skin type
+      setDeterminingSkinType(true);
       setLoading(true);
 
       const response = await fetch("http://localhost:8080/api/skin-type", {
@@ -96,13 +99,13 @@ function QuizPage() {
 
       // Simulate a delay for processing
       setTimeout(() => {
-        setFadeOutLoading(true); // Start fading out the loading state
+        setFadeOutLoading(true);
         setTimeout(() => {
           setSkinType(data.skinType);
           setDeterminingSkinType(false);
-          setFadeOutLoading(false); // Reset fade-out state
-        }, 500); // Wait for fade-out to complete
-      }, 1500); // 1.5-second delay for processing
+          setFadeOutLoading(false);
+        }, 500);
+      }, 1500);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -136,66 +139,24 @@ function QuizPage() {
 
         {/* Show quiz content only if not determining skin type and skinType is not set */}
         {!determiningSkinType && !skinType && questions.length > 0 && (
-          <div className="quiz-page__content">
-            {questions
-              .slice(0, currentQuestionIndex + 1)
-              .map((question, index) => (
-                <div
-                  key={index}
-                  className="quiz-page__question"
-                  ref={index === currentQuestionIndex ? questionRef : null}
-                >
-                  <h3>{question.question}</h3>
-                  <div className="quiz-page__options">
-                    {question.options.map((option, i) => (
-                      <button
-                        key={i}
-                        onClick={() => handleAnswerSelect(index, i + 1)}
-                        className="quiz-page__option-button"
-                        disabled={answers[index] !== undefined}
-                      >
-                        {option}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              ))}
-
-            {currentQuestionIndex === questions.length - 1 &&
-              answers[questions.length - 1] !== undefined && (
-                <button
-                  onClick={handleSubmit}
-                  className="quiz-page__submit-button"
-                >
-                  Submit
-                </button>
-              )}
-          </div>
+          <QuizContent
+            questions={questions}
+            currentQuestionIndex={currentQuestionIndex}
+            answers={answers}
+            handleAnswerSelect={handleAnswerSelect}
+            handleSubmit={handleSubmit}
+            questionRef={questionRef}
+          />
         )}
 
         {/* Show loading state while determining skin type */}
         {determiningSkinType && (
-          <div
-            className={`quiz-page__determining ${
-              fadeOutLoading ? "quiz-page__determining--fade-out" : ""
-            }`}
-          >
-            <div className="quiz-page__spinner"></div>
-            <p>Determining your skin type...</p>
-          </div>
+          <DeterminingSkinType fadeOutLoading={fadeOutLoading} />
         )}
 
         {/* Show result section when skinType is set */}
         {skinType && (
-          <div className="quiz-page__result quiz-page__result--visible">
-            <h2>Your Skin Type is: {skinType.toUpperCase()}</h2>
-            <button
-              onClick={handleScanNow}
-              className="quiz-page__scan-button"
-            >
-              Let's Scan Now
-            </button>
-          </div>
+          <QuizResult skinType={skinType} handleScanNow={handleScanNow} />
         )}
       </div>
     </div>

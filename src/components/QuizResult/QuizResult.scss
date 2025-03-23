@@ -1,0 +1,40 @@
+.quiz-page {
+  &__result {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease 0.5s, transform 0.5s ease 0.5s; // Delay the transition
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #83494c;
+      margin-bottom: 2rem;
+    }
+  }
+  &__scan-button {
+    background-color: #83494c;
+    color: #fff0eb;
+    padding: 0.85rem 2rem;
+    border: none;
+    border-radius: 2rem;
+    font-family: inherit;
+    font-size: 1.125rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(131, 73, 76, 0.2);
+
+    &:hover {
+      background-color: #6a3a3d;
+      transform: scale(1.05);
+    }
+  }
+}
