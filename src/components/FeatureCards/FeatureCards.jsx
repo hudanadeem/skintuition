@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./FeatureCards.scss";
-import quizImg from "../../assets/Icons/analysis.jpg"; // for Personalized Quiz
+import quizImg from "../../assets/Icons/drop.jpg"; // for Personalized Quiz
 import scanImg from "../../assets/Icons/scan.jpg"; // for Scan Ingredients
 
 function FeatureCards() {

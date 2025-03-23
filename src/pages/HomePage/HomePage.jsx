@@ -48,7 +48,7 @@ function HomePage() {
       </div>
       <OurMission />
       <h2 className="homepage__carousel-title">
-        <span>Trusted by the Best in Skincare</span>
+        <span>Trusted by Us</span>
       </h2>
       <BrandCarousel />
       <FeatureCards />

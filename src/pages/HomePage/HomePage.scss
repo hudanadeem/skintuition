@@ -1,6 +1,6 @@
 .homepage {
   &__container {
-    background: url(../../assets/Icons/crystalweed-cannabis-QrK0mgbk2r0-unsplash.jpg) no-repeat center center;
+    background: url(../../assets/Icons/skincare-back5.jpg) no-repeat center center;
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -22,7 +22,7 @@
     width: 100%;
     z-index: 1000;
     transition: background-color 0.3s ease;
-    height: 7rem;
+    height: 4rem;
   }
 
   &__nav.scrolled {
@@ -30,7 +30,8 @@
   }
 
   &__logo {
-    height: 8rem;
+    height: 5rem;
+    margin-top: 0.5rem;
   }
 
   &__profile {
@@ -48,9 +49,9 @@
   }
 
   &__title.in-nav {
-    font-size: 2rem;
+    font-size: 2.5rem;
     position: fixed;
-    top: 3rem;
+    top: 1.2rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1001;

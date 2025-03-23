@@ -44,8 +44,7 @@ function OurMission() {
             skincare is the first step towards healthier, happier skin. Our
             mission is to empower you with the knowledge to decode ingredient
             lists, making it easier for you to make informed choices about the
-            products you use every day. Whether you're scanning a product label
-            or pasting an ingredient list, we're here to provide you with
+            products you use every day. We're here to provide you with
             personalized insights tailored to your unique skin type. Let's
             embark on this journey to better skin together!
           </p>
