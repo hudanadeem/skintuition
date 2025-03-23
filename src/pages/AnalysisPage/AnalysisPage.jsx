@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect , useRef} from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./AnalysisPage.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import photoIcon from "../../assets/icons/upload.png"; // Import your custom icon
+
 
 function AnalysisPage() {
   const [image, setImage] = useState(null);
@@ -14,6 +15,7 @@ function AnalysisPage() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
   const navigate = useNavigate();
+  const resultsRef = useRef(null);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -58,6 +60,10 @@ function AnalysisPage() {
       );
 
       setResults(response.data);
+      setTimeout(() => {
+        resultsRef.current?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+      
     } catch (error) {
       console.error("Error scanning image:", error);
       setError("Failed to scan image. Please try again.");
@@ -74,7 +80,7 @@ function AnalysisPage() {
   };
 
   return (
-    <div className="page__container">
+    <div className="page__container--analysis">
       <NavBar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
       <div className="analysis-page">
         <h1 className="analysis-page__title">Scan Your Product</h1>
@@ -143,60 +149,43 @@ function AnalysisPage() {
 
         {/* Results Display */}
         {results && (
-          <div className="analysis-page__results">
+          <div className="analysis-page__results" ref={resultsRef}>
             <h2 className="analysis-page__results-title">Scan Results</h2>
 
-            {/* Beneficial Ingredients */}
-            <div className="analysis-page__results-section">
-              <h3>Beneficial Ingredients</h3>
-              {results.beneficial && results.beneficial.length > 0 ? (
-                <ul>
-                  {results.beneficial.map((ingredient, index) => (
-                    <li key={index}>
-                      <strong>{ingredient.name}</strong>:{" "}
-                      {ingredient.description}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No beneficial ingredients detected.</p>
-              )}
-            </div>
-
-            {/* Potential Irritants */}
-            <div className="analysis-page__results-section">
-              <h3>Potential Irritants</h3>
-              {results.potentialIrritants &&
-              results.potentialIrritants.length > 0 ? (
-                <ul>
-                  {results.potentialIrritants.map((ingredient, index) => (
-                    <li key={index}>
-                      <strong>{ingredient.name}</strong>:{" "}
-                      {ingredient.description}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No potential irritants detected.</p>
-              )}
-            </div>
-
-            {/* Harmful Ingredients */}
-            <div className="analysis-page__results-section">
-              <h3>Harmful Ingredients</h3>
-              {results.harmful && results.harmful.length > 0 ? (
-                <ul>
-                  {results.harmful.map((ingredient, index) => (
-                    <li key={index}>
-                      <strong>{ingredient.name}</strong>:{" "}
-                      {ingredient.description}
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p>No harmful ingredients detected.</p>
-              )}
-            </div>
+            {[
+              { label: "Beneficial Ingredients", data: results.beneficial },
+              {
+                label: "Potential Irritants",
+                data: results.potentialIrritants,
+              },
+              { label: "Harmful Ingredients", data: results.harmful },
+            ].map((section, i) => (
+              <div key={i} className="analysis-page__results-section">
+                <h3>{section.label}</h3>
+                {section.data && section.data.length > 0 ? (
+                  <div className="analysis-page__results-bubbles">
+                    {section.data.map((ingredient, index) => (
+                      <div
+                        key={index}
+                        className="analysis-page__bubble"
+                        style={{ animationDelay: `${index * 800}ms` }}
+                      >
+                        <div className="analysis-page__bubble-inner">
+                          <div className="analysis-page__bubble-front">
+                            {ingredient.name}
+                          </div>
+                          <div className="analysis-page__bubble-back">
+                            {ingredient.description}
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p>No {section.label.toLowerCase()} detected.</p>
+                )}
+              </div>
+            ))}
           </div>
         )}
       </div>
