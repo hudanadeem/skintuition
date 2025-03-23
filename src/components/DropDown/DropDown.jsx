@@ -52,9 +52,8 @@ function DropDown({ handleLogout }) {
       <div className={`menu ${menuOpen ? "active" : ""}`}>
         <ul>
           <li>Profile</li>
-          <li>Inbox</li>
-          <li>Settings</li>
           <li>Help</li>
+          <li>Settings</li>
           <li>
             <button onClick={handleLogout}>Sign Out</button>
           </li>

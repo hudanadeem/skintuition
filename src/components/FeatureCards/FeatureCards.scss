@@ -105,16 +105,12 @@
       transition: all 0.3s ease;
     
       &:hover {
-        background-color: #5e2f32; // deeper plum shade
-        transform: scale(1.05);
-        box-shadow: 0 6px 20px rgba(131, 73, 76, 0.4); // warm glow
-        color: #fff0eb;
-      }
-    
-      &:focus {
-        outline: none;
-        transform: scale(1.03);
-        box-shadow: 0 0 0 3px rgba(252, 213, 206, 0.5);
+        background-color: #fff0eb; // soft light peach
+        border: 1px solid #83494c;
+        color: #83494c; // invert to match brand
+        transform: scale(1.08);
+        box-shadow: 0 10px 25px rgba(255, 224, 216, 0.8); // brighter glow
+        letter-spacing: 0.5px;
       }
     }
     
