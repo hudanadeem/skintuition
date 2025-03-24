@@ -38,13 +38,13 @@
   }
 
   &__option--button,
-  &__submit--button {
+  &__submit--button {      
+    font-family: "Garbata", sans-serif;
     background-color: $primary-color;
     color: $light-peach;
     padding: 0.85rem 2rem;
     border: none;
     border-radius: 2rem;
-    font-family: inherit;
     font-size: $font-size-medium;
     font-weight: 600;
     cursor: pointer;
