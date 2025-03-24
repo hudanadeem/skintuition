@@ -1,0 +1,97 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.mission {
+  background: radial-gradient(
+    circle at 72% center,
+    #ffffff 0%,
+    #ffeae4 25%,
+    $light-apricot 40%
+  );
+
+  padding: 8rem 2rem;
+  color: $primary-color;
+  font-family: "Garbata";
+
+  &__container {
+    @include flex();
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+  }
+
+  &__image--container {
+    flex: 1;
+    overflow: hidden;
+  }
+
+  &__image {
+    width: auto;
+    height: 45rem;
+    border-radius: 1rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: all 1s ease-in-out;
+  }
+
+  &__image.slide-in {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &__headline {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  &__content {
+    font-size: $font-size-xlarge;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+
+    &--container {
+      flex: 1;
+      text-align: left;
+    }
+  }
+
+  &__cta {
+    font-size: 1.7rem;
+    font-weight: 600;
+    &--button {
+      display: inline-block;
+      font-family: "Garbata";
+      font-weight: 600;
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      color: $primary-color;
+      padding: 0.85rem 0rem;
+      border-radius: 2rem;
+      border: none;
+      margin-top: 1rem;
+      text-decoration: none;
+      transition: all 0.35s ease;
+
+      &:hover {
+        transform: scale(1.5);
+        padding-left: 1.7rem;
+        color: #5b3335;
+      }
+    }
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

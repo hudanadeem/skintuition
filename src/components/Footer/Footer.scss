@@ -1,0 +1,12 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.footer {
+  background-color: $light-apricot;
+  color: $primary-color;
+  padding: 2rem;
+  font-family: "Ariel";
+  font-size: 0.9rem;
+  @include flex(row, center, center);
+}

@@ -1,0 +1,56 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.quiz__page {
+  min-height: 100vh;
+  width: 100%;
+  @include flex();
+  flex-direction: column;
+  background: radial-gradient(
+    ellipse 80% 47% at center,
+    #fffdfc 0%,
+    #fffdfc 30%,
+    #ffeae4 50%,
+    $light-apricot 75%,
+    $light-apricot 100%
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &--container {
+    max-width: 640px;
+    margin: 9rem auto 4rem;
+    padding: 3rem 2rem;
+    border-radius: 1.5rem;
+    font-family: "Garbata";
+    color: $text-color;
+    position: relative;
+    @include flex(column, center, center);
+    min-height: 70vh;
+  }
+  &--title {
+    font-size: $font-size-xxlarge;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $primary-color;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  &--loading,
+  &--error {
+    text-align: center;
+    font-size: $font-size-large;
+    font-weight: 600;
+    color: $error-color;
+    padding: 2rem 1rem;
+  }
+}
+
+@keyframes slideFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

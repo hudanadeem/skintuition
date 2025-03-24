@@ -1,0 +1,218 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.card {
+  background: radial-gradient(
+    circle at 22% center,
+    #ffffff 0%,
+    #ffeae4 25%,
+    $light-apricot 40%
+  );
+  padding: 8rem 4rem;
+  text-align: center;
+
+  &__headline {
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: $primary-color;
+    margin-bottom: 2rem;
+  }
+
+  &__features {
+    @include flex();
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: nowrap;
+    margin: 0 auto;
+  }
+  &__description {
+    font-size: $font-size-xlarge;
+    line-height: 1.6;
+  }
+  &__steps {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 1rem;
+
+    li {
+      position: relative;
+      padding-left: 2rem;
+      margin-bottom: 1rem;
+      font-size: $font-size-xlarge;
+      font-weight: 200;
+      color: $text-color;
+
+      &::before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: $primary-color;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+    }
+  }
+  &__wrapper {
+    font-family: "Garbata";
+    @include flex(row, center, center);
+  }
+
+  &__intro {
+    text-align: left;
+    padding: 2rem;
+    color: #6a3a3d;
+    width: 40%;
+  }
+
+  &__feature {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    max-width: 21.875rem;
+    height: 28.125rem;
+    overflow: hidden;
+    border-radius: 0.625rem;
+    box-shadow: 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.25);
+    position: relative;
+
+    &__background {
+      object-fit: cover;
+      max-width: 100%;
+      height: 100%;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+
+    &__content {
+      --flow-space: 0.9375rem;
+      @include flex(column, space-between, center); 
+      align-self: flex-end;
+      height: 55%;
+      padding: 12% 1.25rem 1.875rem;
+      background: linear-gradient(
+        180deg,
+        hsla(0, 0%, 100%, 0) 0%,
+        hsla(30, 100%, 90%, 0.3) 10%,
+        $light-peach 100% 
+      );
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+      color: $primary-color; 
+    }
+
+    &__title {
+      position: relative;
+      width: fit-content;
+      font-size: $font-size-xlarge;
+      font-weight: 600;
+      text-transform: uppercase;
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: 0.3125rem;
+        width: calc(100% + 1.25rem);
+        bottom: calc((1.25rem - 0.5rem) * -1);
+        left: -1.25rem;
+        background-color: $primary-color; 
+      }
+    }
+
+    &__description {
+      font-size: $font-size-large;
+      line-height: 1.5;
+    }
+
+    &__button {
+      padding: 0.75em 1.6em;
+      width: fit-content;
+      font-variant: small-caps;
+      font-weight: bold;
+      border-radius: 0.45em;
+      border: none;
+      background-color: $primary-color;
+      font-family: "Garbata";
+      font-size: $font-size-medium;
+      color: $light-apricot;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $light-peach;
+        border: 1px solid $primary-color;
+        color: $primary-color;
+        transform: scale(1.08);
+        box-shadow: 0 10px 25px rgba(255, 224, 216, 0.8);
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+@media (any-hover: hover) and (any-pointer: fine) {
+  .card__feature {
+    height: 550px;
+    transition: transform 500ms ease-in;
+
+    &:hover,
+    &:focus-within {
+      transform: scale(1.05);
+
+      .card__feature__background {
+        transform: scale(1.3);
+      }
+
+      .card__feature__content {
+        transform: translateY(0);
+        transition: transform 500ms ease-in;
+
+        > :not(.card__feature__title),
+        .card__feature__button {
+          opacity: 1;
+          transition: opacity 500ms ease-in;
+          transition-delay: 1000ms;
+        }
+      }
+
+      .card__feature__title::after {
+        opacity: 1;
+        transform: scaleX(1);
+        transform-origin: left;
+        transition: opacity 500ms ease-in, transform 500ms ease-in;
+        transition-delay: 500ms;
+      }
+    }
+
+    &__background {
+      transition: transform 500ms ease-in;
+    }
+
+    &__content {
+      transform: translateY(62%);
+      transition: transform 500ms ease-out;
+      transition-delay: 500ms;
+      padding: 15% 1.25rem 1.875rem;
+
+      > :not(.card__feature__title),
+      .card__feature__button {
+        opacity: 0;
+        transition: transform 500ms ease-out, opacity 500ms ease-out;
+        text-decoration: none;
+        width: 100%;
+      }
+    }
+
+    &__title::after {
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: opacity 1000ms ease-in, transform 500ms ease-out;
+      transition-delay: 500ms;
+    }
+
+    &:focus-within &__content {
+      transition-duration: 0ms;
+    }
+  }
+}

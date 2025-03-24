@@ -1,0 +1,75 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.image__upload {
+  margin-bottom: 2rem;
+
+  &--group {
+    @include flex();
+    align-items: center;
+    background-color: #fff;
+    border-radius: 2rem;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(131, 73, 76, 0.2);
+    padding-left: 1rem;
+    height: 3rem;
+  }
+
+  &--icon {
+    padding: 0.75rem 0.5rem;
+
+    &--img {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  &--input {
+    flex-grow: 1;
+    border: none;
+    background: transparent;
+    font-size: $font-size-medium;
+    font-weight: 600;
+    color: $text-color;
+    padding: 0.5rem 1rem;
+    font-family: "Garbata";
+
+    &::placeholder {
+      color: #aaa;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &--browse {
+    background-color: $primary-color;
+    color: $light-peach;
+    font-size: $font-size-medium;
+    font-weight: 600;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 100%;
+
+    &:hover {
+      background-color: #6a3a3d;
+      transform: scale(1.05);
+    }
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
+@keyframes scan-line {
+  0% {
+    top: -5%;
+  }
+  100% {
+    top: 100%;
+  }
+}

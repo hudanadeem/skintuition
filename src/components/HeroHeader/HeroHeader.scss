@@ -1,0 +1,82 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.hero {
+  &__container {
+    background: url(../../assets/images/hero_img.jpg) no-repeat center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    @include flex(column, space-between, center);
+    padding-bottom: 6rem;
+    padding-top: 40rem;
+  }
+  &__title {
+    font-family: "Garbata";
+    font-size: 14rem;
+    text-transform: uppercase;
+    color: $primary-color;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title.in-nav {
+    font-size: 2.5rem;
+    position: fixed;
+    top: 1.2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1001;
+    text-align: center;
+  }
+  &__nav {
+    @include flex(row, space-between, center);
+    padding: 0.5rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+    height: 4rem;
+  }
+
+  &__nav.scrolled {
+    background-color: $light-apricot;
+  }
+
+  &__logo {
+    height: 5rem;
+    margin-top: 0.5rem;
+  }
+  &__profile {
+    height: 3rem;
+    width: auto;
+    @include flex(row, flex-end, center);
+    position: relative;
+    z-index: 1002;
+  }
+  &__profile--button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    height: 3rem;
+    width: 3rem;
+    @include flex(row, center, center);
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+  &__profile--icon {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}

@@ -1,0 +1,47 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.carousel--title {
+  @include flex(row, center, center);
+  gap: 1rem;
+  font-size: 2.25rem;
+  font-weight: 600;
+  color: $primary-color;
+  text-align: center;
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  font-family: "Garbata";
+  background: radial-gradient(
+    circle,
+    $light-apricot 30%,
+    #ffeae4 90%,
+    #ffffff 100%
+  );
+  position: relative;
+
+  span {
+    position: relative;
+    padding: 0 1rem;
+    white-space: nowrap;
+
+    &::before,
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 350px;
+      height: 2px;
+      background-color: $primary-color;
+      vertical-align: middle;
+      margin: 0 1rem;
+    }
+
+    &::before {
+      margin-right: 1rem;
+    }
+
+    &::after {
+      margin-left: 1rem;
+    }
+  }
+}
