@@ -94,10 +94,8 @@
       background: linear-gradient(
         180deg,
         hsla(0, 0%, 100%, 0) 0%,
-        // fully transparent white
         hsla(30, 100%, 90%, 0.3) 10%,
-        // soft peach glow (light tint)
-        $light-peach 100% // bright warm
+        $light-peach 100% 
       );
       grid-column: 1 / 2;
       grid-row: 1 / 2;
