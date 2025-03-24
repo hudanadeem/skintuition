@@ -93,17 +93,3 @@ Built for skincare enthusiasts, dermatology patients, and anyone looking to make
    ```
 
 ---
-
-## 📌 API Overview
-
-| Method | Endpoint                          | Description                             |
-|--------|-----------------------------------|-----------------------------------------|
-| POST   | `/api/auth/register`              | Register a new user                     |
-| POST   | `/api/auth/login`                 | Authenticate user and receive JWT       |
-| GET    | `/api/users/profile`              | Get user profile (JWT required)         |
-| POST   | `/api/users/update-skin-type`     | Update user's skin type                 |
-| GET    | `/api/skin-type/questions`        | Get skin-type quiz questions            |
-| POST   | `/api/skin-type/`                 | Submit answers and get skin type        |
-| POST   | `/api/analyze/`                   | Upload image for ingredient analysis    |
-
----
