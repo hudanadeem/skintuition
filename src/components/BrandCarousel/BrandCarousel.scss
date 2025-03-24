@@ -3,8 +3,7 @@
 @use "../../styles/partials/typography" as *;
 
 .carousel {
-  display: flex;
-  align-items: center;
+  @include flex(row, flex-start, center);
   gap: 1rem;
   position: relative;
   padding: 2rem 1rem;
@@ -16,7 +15,7 @@
   );
 
   &__container {
-    display: flex;
+    @include flex();
     gap: 2rem;
     overflow-x: auto;
     scroll-behavior: smooth;
@@ -42,15 +41,11 @@
     );
 
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden; // Important to prevent image overflow
+    @include flex(row, center, center);
+    overflow: hidden;
 
     a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex(row, center, center);
       width: 100%;
       height: 100%;
       text-decoration: none;

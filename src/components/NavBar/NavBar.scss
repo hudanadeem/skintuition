@@ -10,9 +10,7 @@
   height: 4rem;
   padding: 0.5rem 1rem;
   background-color: $light-apricot;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  @include flex(row, space-between, center);
   z-index: 1000;
 
   &__logo {
@@ -23,9 +21,7 @@
   &__profile {
     height: 3rem;
     width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    @include flex(row, flex-end, center);
     position: relative;
     z-index: 1002;
 
@@ -36,9 +32,7 @@
       padding: 0;
       height: 3rem;
       width: 3rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      @include flex(row, center, center);
 
       img {
         height: 100%;

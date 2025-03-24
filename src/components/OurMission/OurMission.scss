@@ -15,7 +15,7 @@
   font-family: "Garbata";
 
   &__container {
-    display: flex;
+    @include flex();
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;

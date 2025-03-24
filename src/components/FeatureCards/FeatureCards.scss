@@ -20,7 +20,7 @@
   }
 
   &__features {
-    display: flex;
+    @include flex();
     justify-content: center;
     gap: 2rem;
     flex-wrap: nowrap;
@@ -56,9 +56,7 @@
   }
   &__wrapper {
     font-family: "Garbata";
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex(row, center, center);
   }
 
   &__intro {
@@ -89,9 +87,7 @@
 
     &__content {
       --flow-space: 0.9375rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      @include flex(column, space-between, center); 
       align-self: flex-end;
       height: 55%;
       padding: 12% 1.25rem 1.875rem;

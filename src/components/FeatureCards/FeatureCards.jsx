@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "./FeatureCards.scss";
-import quizImg from "../../assets/images/drop.jpg";
+import quizImg from "../../assets/images/quiz.jpg";
 import scanImg from "../../assets/images/scan.jpg";
 
 function FeatureCards() {

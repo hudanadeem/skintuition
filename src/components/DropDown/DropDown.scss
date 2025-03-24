@@ -4,7 +4,7 @@
 
 .profile {
   position: relative;
-  display: flex;
+  @include flex();
   align-items: center;
   gap: 12px;
   cursor: pointer;
@@ -19,7 +19,7 @@
   }
 
   &__user {
-    display: flex;
+    @include flex();
     flex-direction: column;
     h3 {
       margin: 0;

@@ -4,13 +4,11 @@
 
 .hero {
   &__container {
-    background: url(../../assets/images/skincare-back5.jpg) no-repeat center;
+    background: url(../../assets/images/hero_img.jpg) no-repeat center;
     background-size: cover;
     height: 100vh;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @include flex(column, space-between, center);
     padding-bottom: 6rem;
     padding-top: 40rem;
   }
@@ -33,9 +31,7 @@
     text-align: center;
   }
   &__nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(row, space-between, center);
     padding: 0.5rem 1rem;
     position: fixed;
     top: 0;
@@ -57,9 +53,7 @@
   &__profile {
     height: 3rem;
     width: auto;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    @include flex(row, flex-end, center);
     position: relative;
     z-index: 1002;
   }
@@ -70,9 +64,7 @@
     padding: 0;
     height: 3rem;
     width: 3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @include flex(row, center, center);
 
     img {
       height: 100%;

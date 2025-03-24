@@ -33,13 +33,13 @@
   }
 
   &__form {
-    display: flex;
+    @include flex();
     flex-direction: column;
     gap: 1.75rem;
   }
 
   &__form--group {
-    display: flex;
+    @include flex();
     flex-direction: column;
     gap: 0.5rem;
 

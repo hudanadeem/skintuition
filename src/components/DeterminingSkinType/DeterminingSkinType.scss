@@ -4,11 +4,8 @@
 
 .quiz {
   &__determining {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 50vh; // Ensure it takes up enough space
+    @include flex(column, center, center);
+    min-height: 50vh; 
     opacity: 1;
     transition: opacity 0.5s ease;
     width: 100%;
@@ -16,7 +13,7 @@
     padding: 2rem;
 
     &--fade {
-      opacity: 0; // Fade out the loading state
+      opacity: 0; 
     }
 
     p {
