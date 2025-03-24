@@ -141,18 +141,18 @@
 
       &:hover {
         background-color: $light-peach;
-        border: 1px solid $primary-color;
+        border: .0625rem solid $primary-color;
         color: $primary-color;
         transform: scale(1.08);
-        box-shadow: 0 10px 25px rgba(255, 224, 216, 0.8);
-        letter-spacing: 0.5px;
+        box-shadow: 0 .625rem 1.5625rem rgba(255, 224, 216, 0.8);
+        letter-spacing: .0313rem;
       }
     }
   }
 }
 @media (any-hover: hover) and (any-pointer: fine) {
   .card__feature {
-    height: 550px;
+    height: 34.375rem;
     transition: transform 500ms ease-in;
 
     &:hover,

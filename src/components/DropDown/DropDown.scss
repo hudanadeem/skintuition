@@ -6,7 +6,7 @@
   position: relative;
   @include flex();
   align-items: center;
-  gap: 12px;
+  gap: .75rem;
   cursor: pointer;
   text-align: left;
   color: #6a3a3d;
@@ -50,15 +50,15 @@
 
   &__menu {
     position: absolute;
-    top: calc(100% + 24px);
+    top: calc(100% + 1.5rem);
     right: 0;
-    width: 175px;
+    width: 10.9375rem;
     background-color: $light-apricot;
     border-radius: 1rem;
-    border: 1.2px solid $primary-color;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border: .075rem solid $primary-color;
+    box-shadow: 0 .625rem 1.25rem rgba(0, 0, 0, 0.2);
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translateY(-0.625rem);
     visibility: hidden;
     transition: 300ms ease;
 
@@ -71,10 +71,10 @@
     &::before {
       content: "";
       position: absolute;
-      top: -10px;
-      right: 14px;
-      width: 20px;
-      height: 20px;
+      top: -0.625rem;
+      right: .875rem;
+      width: 1.25rem;
+      height: 1.25rem;
       background: $light-apricot;
       transform: rotate(45deg);
       z-index: -1;
@@ -86,7 +86,7 @@
       margin: 0;
 
       li {
-        padding: 15px 20px;
+        padding: .9375rem 1.25rem;
         transition: background-color 0.2s ease;
         cursor: pointer;
         border-radius: 0.5rem;
