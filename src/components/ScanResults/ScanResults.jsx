@@ -2,7 +2,7 @@ import "./ScanResults.scss";
 
 function ScanResults({ results, resultsRef }) {
   const {
-    skin_type = "your",
+    skin_type = "",
     summary = "",
     ingredientsList = "",
     analysis = {
@@ -29,7 +29,7 @@ function ScanResults({ results, resultsRef }) {
     <div className="analysis" ref={resultsRef}>
       <div className="analysis__meta">
         <p className="analysis__skin-type">
-          {wrapNumbers(`Results for your ${skin_type} skin`)}
+          {wrapNumbers(`Results`)}
         </p>
         {summary && <p className="analysis__summary">{wrapNumbers(summary)}</p>}
       </div>

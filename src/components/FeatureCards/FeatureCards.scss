@@ -20,7 +20,7 @@
   }
 
   &__features {
-    @include flex();
+    display: flex;
     justify-content: center;
     gap: 2rem;
     flex-wrap: nowrap;
@@ -87,7 +87,7 @@
 
     &__content {
       --flow-space: 0.9375rem;
-      @include flex(column, space-between, center); 
+      @include flex(column, space-between, center);
       align-self: flex-end;
       height: 55%;
       padding: 12% 1.25rem 1.875rem;
@@ -95,11 +95,11 @@
         180deg,
         hsla(0, 0%, 100%, 0) 0%,
         hsla(30, 100%, 90%, 0.3) 10%,
-        $light-peach 100% 
+        $light-peach 100%
       );
       grid-column: 1 / 2;
       grid-row: 1 / 2;
-      color: $primary-color; 
+      color: $primary-color;
     }
 
     &__title {
@@ -116,7 +116,7 @@
         width: calc(100% + 1.25rem);
         bottom: calc((1.25rem - 0.5rem) * -1);
         left: -1.25rem;
-        background-color: $primary-color; 
+        background-color: $primary-color;
       }
     }
 
@@ -141,11 +141,11 @@
 
       &:hover {
         background-color: $light-peach;
-        border: .0625rem solid $primary-color;
+        border: 0.0625rem solid $primary-color;
         color: $primary-color;
         transform: scale(1.08);
-        box-shadow: 0 .625rem 1.5625rem rgba(255, 224, 216, 0.8);
-        letter-spacing: .0313rem;
+        box-shadow: 0 0.625rem 1.5625rem rgba(255, 224, 216, 0.8);
+        letter-spacing: 0.0313rem;
       }
     }
   }

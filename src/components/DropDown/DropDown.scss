@@ -4,9 +4,9 @@
 
 .profile {
   position: relative;
-  @include flex();
+  display: flex;
   align-items: center;
-  gap: .75rem;
+  gap: 0.75rem;
   cursor: pointer;
   text-align: left;
   color: #6a3a3d;
@@ -19,7 +19,7 @@
   }
 
   &__user {
-    @include flex();
+    display: flex;
     flex-direction: column;
     h3 {
       margin: 0;
@@ -55,8 +55,8 @@
     width: 10.9375rem;
     background-color: $light-apricot;
     border-radius: 1rem;
-    border: .075rem solid $primary-color;
-    box-shadow: 0 .625rem 1.25rem rgba(0, 0, 0, 0.2);
+    border: 0.075rem solid $primary-color;
+    box-shadow: 0 0.625rem 1.25rem rgba(0, 0, 0, 0.2);
     opacity: 0;
     transform: translateY(-0.625rem);
     visibility: hidden;
@@ -72,7 +72,7 @@
       content: "";
       position: absolute;
       top: -0.625rem;
-      right: .875rem;
+      right: 0.875rem;
       width: 1.25rem;
       height: 1.25rem;
       background: $light-apricot;
@@ -86,7 +86,7 @@
       margin: 0;
 
       li {
-        padding: .9375rem 1.25rem;
+        padding: 0.9375rem 1.25rem;
         transition: background-color 0.2s ease;
         cursor: pointer;
         border-radius: 0.5rem;
