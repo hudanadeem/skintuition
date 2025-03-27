@@ -1,21 +1,18 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./AnalysisPage.scss";
 import NavBar from "../../components/NavBar/NavBar";
 import ImageUpload from "../../components/ImageUpload/ImageUpload";
-import ScanResults from "../../components/ScanResults/ScanResults";
 
 function AnalysisPage() {
   const [image, setImage] = useState(null);
   const [fileName, setFileName] = useState("");
-  const [results, setResults] = useState(null);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isScanning, setIsScanning] = useState(false);
   const navigate = useNavigate();
-  const resultsRef = useRef(null);
 
   const baseURL = import.meta.env.VITE_API_URL;
 
@@ -57,10 +54,7 @@ function AnalysisPage() {
         },
       });
 
-      setResults(response.data);
-      setTimeout(() => {
-        resultsRef.current?.scrollIntoView({ behavior: "smooth" });
-      }, 100);
+      navigate("/results", { state: { results: response.data } });
     } catch (error) {
       console.error("Error scanning image:", error);
       setError("Failed to scan image. Please try again.");
@@ -106,8 +100,6 @@ function AnalysisPage() {
         >
           {isLoading ? "Scanning..." : "Scan"}
         </button>
-
-        {results && <ScanResults results={results} resultsRef={resultsRef} />}
       </div>
     </div>
   );

@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/typography" as *;
+
+.results__page--container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: $light-apricot;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.results__page {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
