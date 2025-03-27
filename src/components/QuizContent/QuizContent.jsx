@@ -22,7 +22,11 @@ function QuizContent({
               <button
                 key={i}
                 onClick={() => handleAnswerSelect(index, i + 1)}
-                className="quiz__option--button"
+                className={`quiz__option--button ${
+                  answers[index] === i + 1
+                    ? "quiz__option--button--selected"
+                    : ""
+                }`}
                 disabled={answers[index] !== undefined}
               >
                 {option}

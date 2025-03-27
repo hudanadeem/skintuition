@@ -31,7 +31,7 @@ function ScanResults({ results, resultsRef }) {
         <p className="analysis__skin-type">
           {wrapNumbers(`Results`)}
         </p>
-        {summary && <p className="analysis__summary">{wrapNumbers(summary)}</p>}
+        {/* {summary && <p className="analysis__summary">{wrapNumbers(summary)}</p>} */}
       </div>
 
       {[
