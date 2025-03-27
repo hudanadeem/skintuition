@@ -7,7 +7,11 @@ const baseURL = import.meta.env.VITE_API_URL;
 
 function DropDown({ handleLogout }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [userData, setUserData] = useState({ name: "", email: "" });
+  const [userData, setUserData] = useState({
+    name: "",
+    email: "",
+    skin_type: "",
+  });
 
   const toggleDropdown = () => {
     setMenuOpen((prev) => !prev);
@@ -26,8 +30,8 @@ function DropDown({ handleLogout }) {
           },
         });
 
-        const { name, email } = response.data;
-        setUserData({ name, email });
+        const { name, email, skin_type } = response.data;
+        setUserData({ name, email, skin_type });
       } catch (error) {
         console.error("Error fetching user profile:", error);
       }
@@ -53,6 +57,18 @@ function DropDown({ handleLogout }) {
           <li>Profile</li>
           <li>Help</li>
           <li>Settings</li>
+          <li>
+            <div
+              className={`profile__skinType ${
+                !userData.skin_type ? "profile__skinType--tbd" : ""
+              }`}
+            >
+              <span>Skin Type: </span>
+              <span className="profile__skinType--value">
+                {userData.skin_type || "Empty"}
+              </span>
+            </div>
+          </li>
           <li>
             <button onClick={handleLogout}>Sign Out</button>
           </li>
