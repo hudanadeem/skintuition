@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import "./RegisterForm.scss";
 
 const baseURL = import.meta.env.VITE_API_URL;
@@ -12,6 +12,7 @@ function RegisterForm() {
   const [skinType, setSkinType] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -30,7 +31,8 @@ function RegisterForm() {
 
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
-        navigate("/");
+        const redirectPath = location.state?.from || "/";
+        navigate(redirectPath);
       } else {
         setError("Registration failed");
       }

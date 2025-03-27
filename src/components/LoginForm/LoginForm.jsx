@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, Link } from "react-router-dom";
 import "./LoginForm.scss";
 
 const baseURL = import.meta.env.VITE_API_URL;
@@ -69,7 +69,13 @@ function LoginForm() {
         </button>
       </form>
       <p className="login__register--link">
-        Don't have an account? <a href="/register">Register here</a>.
+        Don't have an account?{" "}
+        <Link
+          to="/register"
+          state={{ from: location.state?.from }} 
+        >
+          Create an account
+        </Link>
       </p>
     </div>
   );
