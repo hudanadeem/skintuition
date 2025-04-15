@@ -3,22 +3,33 @@
 @use "../../styles/partials/typography" as *;
 
 .hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background: $light-apricot;
+
   &__container {
-    background: url(../../assets/images/hero_img.jpg) no-repeat center;
-    background-size: cover;
-    height: 100vh;
-    width: 100%;
-    @include flex(column, space-between, center);
-    padding-bottom: 6rem;
-    padding-top: 40rem;
+    @include flex(row-reverse, space-between, center);
+    height: 100%;
+    padding: 0 5%;
+    position: relative;
   }
+
+  &__content {
+    flex: 1;
+    max-width: 50%;
+    padding-right: 2rem;
+    z-index: 3; 
+  }
+
   &__title {
     font-family: "Garbata";
-    font-size: 14rem;
+    font-size: 6rem;
     text-transform: uppercase;
     color: $primary-color;
-    display: flex;
-    justify-content: center;
+    margin-bottom: 2rem;
+    line-height: 1.1;
   }
 
   &__title.in-nav {
@@ -30,6 +41,70 @@
     z-index: 1001;
     text-align: center;
   }
+
+  &__slogan {
+    font-size: 2rem;
+    color: $primary-color;
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  &__image-container {
+    position: absolute;
+    left: 0;
+    width: 55%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+  
+  &__image-wrapper {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    border-radius: 0 60% 0 0%;
+    z-index: 2;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: inherit;
+      border: 2px solid $primary-color;
+      pointer-events: none;
+      z-index: 3;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: -0.5rem;
+      left: -0.5rem;
+      right: -0.5rem;
+      bottom: -0.5rem;
+      border-radius: inherit;
+      border: 2px solid $primary-color;
+      pointer-events: none;
+      z-index: 2; 
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit; 
+  }
+
+
+  &__image-bar {
+    display: none;
+  }
+
   &__nav {
     @include flex(row, space-between, center);
     padding: 0.5rem 1rem;
@@ -49,7 +124,9 @@
   &__logo {
     height: 5rem;
     margin-top: 0.5rem;
+    z-index: 1001;
   }
+
   &__profile {
     height: 3rem;
     width: auto;
@@ -57,6 +134,7 @@
     position: relative;
     z-index: 1002;
   }
+
   &__profile--button {
     background: none;
     border: none;
@@ -73,6 +151,7 @@
       object-fit: cover;
     }
   }
+
   &__profile--icon {
     height: 3rem;
     width: 3rem;
