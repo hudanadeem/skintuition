@@ -47,6 +47,12 @@
     color: $primary-color;
     font-style: italic;
     margin-top: 1rem;
+    overflow: hidden;
+    border-right: 2px solid transparent; 
+    white-space: nowrap;
+    animation: 
+      typing 3s steps(60, end) forwards, 
+      blink-caret .75s step-end 8; 
   }
 
   &__image-container {
@@ -157,5 +163,21 @@
     width: 3rem;
     border-radius: 50%;
     object-fit: cover;
+  }
+
+  @keyframes typing {
+    from { 
+      width: 0;
+      border-right-color: $primary-color; 
+    }
+    to { 
+      width: 73%;
+      border-right-color: transparent; 
+    }
+  }
+  
+  @keyframes blink-caret {
+    from, to { border-right-color: transparent }
+    50% { border-right-color: $primary-color }
   }
 }
