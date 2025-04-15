@@ -20,7 +20,7 @@
     flex: 1;
     max-width: 50%;
     padding-right: 2rem;
-    z-index: 3; 
+    z-index: 3;
   }
 
   &__title {
@@ -48,11 +48,9 @@
     font-style: italic;
     margin-top: 1rem;
     overflow: hidden;
-    border-right: 2px solid transparent; 
+    border-right: 2px solid transparent;
     white-space: nowrap;
-    animation: 
-      typing 3s steps(60, end) forwards, 
-      blink-caret .75s step-end 8; 
+    animation: typing 3s steps(60, end) forwards, blink-caret 0.75s step-end 4;
   }
 
   &__image-container {
@@ -62,17 +60,20 @@
     height: 100vh;
     display: flex;
     align-items: center;
+    animation: slideInFromLeft 3s ease-out forwards;
+    transform: translateX(-100%);
+    opacity: 0;
   }
-  
+
   &__image-wrapper {
     position: relative;
     width: 80%;
     height: 100%;
     border-radius: 0 60% 0 0%;
     z-index: 2;
-    
+
     &::before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       left: 0;
@@ -83,9 +84,9 @@
       pointer-events: none;
       z-index: 3;
     }
-    
+
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       top: -0.5rem;
       left: -0.5rem;
@@ -94,18 +95,17 @@
       border-radius: inherit;
       border: 2px solid $primary-color;
       pointer-events: none;
-      z-index: 2; 
+      z-index: 2;
     }
   }
-  
+
   &__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    border-radius: inherit; 
+    border-radius: inherit;
   }
-
 
   &__image-bar {
     display: none;
@@ -166,18 +166,33 @@
   }
 
   @keyframes typing {
-    from { 
+    from {
       width: 0;
-      border-right-color: $primary-color; 
+      border-right-color: $primary-color;
     }
-    to { 
+    to {
       width: 73%;
-      border-right-color: transparent; 
+      border-right-color: transparent;
     }
   }
-  
+
   @keyframes blink-caret {
-    from, to { border-right-color: transparent }
-    50% { border-right-color: $primary-color }
+    from,
+    to {
+      border-right-color: transparent;
+    }
+    50% {
+      border-right-color: $primary-color;
+    }
+  }
+  @keyframes slideInFromLeft {
+    0% {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 }
