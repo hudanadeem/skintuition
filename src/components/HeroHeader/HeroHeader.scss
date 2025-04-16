@@ -30,8 +30,16 @@
     color: $primary-color;
     margin-bottom: 2rem;
     line-height: 1.1;
-  }
 
+    &--hidden {
+      opacity: 0;
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+      transition: none;
+    }
+  }
   &__title.in-nav {
     font-size: 2.5rem;
     position: fixed;
@@ -40,6 +48,12 @@
     transform: translateX(-50%);
     z-index: 1001;
     text-align: center;
+    opacity: 1 !important;
+    pointer-events: none;
+    animation: none;
+  }
+  &__title:not(.in-nav) {
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
   &__slogan {
@@ -193,6 +207,16 @@
     100% {
       transform: translateX(0);
       opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50%) translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
   }
 }

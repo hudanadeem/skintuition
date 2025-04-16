@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import brandLogo from "../../assets/logos/skintuition.png";
 import profileIcon from "../../assets/icons/logged-out.png";
@@ -9,32 +9,34 @@ import "./HeroHeader.scss";
 
 function HeroHeader({ isLoggedIn, handleLogout }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [titleClass, setTitleClass] = useState("");
+  const heroRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
+      const heroSection = heroRef.current;
+      if (!heroSection) return;
 
-      if (scrollY > viewportHeight) {
-        setIsScrolled(true);
-        setTitleClass("in-nav");
-      } else {
-        setIsScrolled(false);
-        setTitleClass("");
-      }
+      const heroHeight = heroSection.offsetHeight;
+      const scrollY = window.scrollY;
+      const triggerPoint = heroHeight * 0.8; // Trigger at 80% of hero height
+
+      setIsScrolled(scrollY > triggerPoint);
     };
+
+    // Run once on mount to set initial state
+    handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <div className="hero">
+    <div className="hero" ref={heroRef}>
       <div className={`hero__nav ${isScrolled ? "scrolled" : ""}`}>
         <Link to="/">
           <img className="hero__logo" src={brandLogo} alt="Brand Logo" />
         </Link>
+        {isScrolled && <h1 className="hero__title in-nav">Skintuition</h1>}
 
         <div className="hero__profile">
           {isLoggedIn ? (
@@ -62,7 +64,9 @@ function HeroHeader({ isLoggedIn, handleLogout }) {
           <div className="hero__image-bar hero__image-bar--right"></div>
         </div>
         <div className="hero__content">
-          <h1 className={`hero__title ${titleClass}`}>Skintuition</h1>
+          <h1 className={`hero__title ${isScrolled ? "hero__title--hidden" : ""}`}>
+            Skintuition
+          </h1>
           <p className="hero__slogan">Decode the Secrets to Your Skin</p>
         </div>
       </div>
